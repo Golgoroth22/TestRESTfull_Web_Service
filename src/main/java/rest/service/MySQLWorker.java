@@ -10,22 +10,52 @@ public class MySQLWorker {
     private static final String user = "root";
     private static final String password = "1qazxsw2";
 
-    private static Connection conn;
-    private static PreparedStatement prpdstmt;
-    private static ResultSet rs;
+    private static Connection connection;
+    private static PreparedStatement preparedStatement;
+    private static ResultSet resultSet;
 
-    //Метод для получения одного значения из таблицы persons по id
-    public String get(int id) {
-        String querry = "SELECT * FROM persons WHERE ID = ?;";
+    /**
+     * Метод для получения всех упоминаний одной конкретной личности(из таблицы persons)
+     * из таблицы person_page_rank по id
+     */
+    public int getPersonPageRank(int id) {
+        String querry = "SELECT * FROM person_page_rank WHERE person_id = ?;";
 
         try {
-            conn = DriverManager.getConnection(url, user, password);
-            prpdstmt = conn.prepareStatement(querry);
-            prpdstmt.setInt(1, id);
-            rs = prpdstmt.executeQuery();
-            rs.next();
+            connection = DriverManager.getConnection(url, user, password);
+            preparedStatement = connection.prepareStatement(querry);
+            preparedStatement.setInt(1, id);
+            resultSet = preparedStatement.executeQuery();
 
-            return rs.getString(2);
+            int result = 0;
+            while (resultSet.next()) {
+                result += resultSet.getInt(3);
+            }
+            return result;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            close();
+        }
+        return 0;
+    }
+
+    /**
+     * Метод для получения конкретной личности из таблицы persons по id
+     */
+    public String getPerson(int id) {
+        String querry = "SELECT * FROM persons WHERE id = ?;";
+
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            preparedStatement = connection.prepareStatement(querry);
+            preparedStatement.setInt(1, id);
+            resultSet = preparedStatement.executeQuery();
+
+            resultSet.next();
+            System.out.println(resultSet.getString(2));
+            return resultSet.getString(2);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -37,17 +67,17 @@ public class MySQLWorker {
 
     public static void close() {
         try {
-            conn.close();
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         try {
-            prpdstmt.close();
+            preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         try {
-            rs.close();
+            resultSet.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

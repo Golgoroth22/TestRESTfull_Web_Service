@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6b75a79-c535-4b46-9976-feccbe5bc3da" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rest/service/Content.java" afterPath="$PROJECT_DIR$/src/main/java/rest/service/Content.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rest/service/ContentController.java" afterPath="$PROJECT_DIR$/src/main/java/rest/service/ContentController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rest/service/MySQLWorker.java" afterPath="$PROJECT_DIR$/src/main/java/rest/service/MySQLWorker.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -32,10 +34,16 @@
       <file leaf-file-name="Content.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/Content.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+            <state relative-caret-position="289">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
                 <element signature="docComment;class#Content#0" expanded="true" />
+                <element signature="e#385#386#0" expanded="true" />
+                <element signature="e#410#411#0" expanded="true" />
+                <element signature="e#446#447#0" expanded="true" />
+                <element signature="e#481#482#0" expanded="true" />
+                <element signature="e#514#515#0" expanded="true" />
+                <element signature="e#543#544#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -44,8 +52,8 @@
       <file leaf-file-name="ContentController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/ContentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+            <state relative-caret-position="255">
+              <caret line="15" column="94" lean-forward="true" selection-start-line="15" selection-start-column="94" selection-end-line="15" selection-end-column="94" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#ContentController#0" expanded="true" />
@@ -57,10 +65,12 @@
       <file leaf-file-name="MySQLWorker.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/MySQLWorker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="16" column="66" lean-forward="false" selection-start-line="16" selection-start-column="66" selection-end-line="16" selection-end-column="66" />
+            <state relative-caret-position="1173">
+              <caret line="78" column="13" lean-forward="true" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
               <folding>
                 <element signature="docComment;class#MySQLWorker#0" expanded="true" />
+                <element signature="docComment;method#getPersonPageRank#0;class#MySQLWorker#0" expanded="true" />
+                <element signature="docComment;method#getPerson#0;class#MySQLWorker#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -69,8 +79,8 @@
       <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="187">
+              <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#Application#0" expanded="true" />
@@ -108,9 +118,9 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/hello/MySQLWorker.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/service/GreetingController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/rest/service/Application.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/service/ContentController.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/service/Content.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rest/service/Application.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/service/MySQLWorker.java" />
       </list>
     </option>
@@ -565,6 +575,12 @@
           <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
           <folding>
             <element signature="docComment;class#Content#0" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
+            <element signature="e#410#411#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#481#482#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -586,6 +602,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#MySQLWorker#0" expanded="true" />
+            <element signature="docComment;method#getPersonPageRank#0;class#MySQLWorker#0" expanded="true" />
+            <element signature="docComment;method#getPerson#0;class#MySQLWorker#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -615,6 +633,12 @@
           <caret line="17" column="18" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
           <folding>
             <element signature="docComment;class#Content#0" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
+            <element signature="e#410#411#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#481#482#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -636,6 +660,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#MySQLWorker#0" expanded="true" />
+            <element signature="docComment;method#getPersonPageRank#0;class#MySQLWorker#0" expanded="true" />
+            <element signature="docComment;method#getPerson#0;class#MySQLWorker#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -672,6 +698,12 @@
           <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
           <folding>
             <element signature="docComment;class#Content#0" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
+            <element signature="e#410#411#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#481#482#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -693,6 +725,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#MySQLWorker#0" expanded="true" />
+            <element signature="docComment;method#getPersonPageRank#0;class#MySQLWorker#0" expanded="true" />
+            <element signature="docComment;method#getPerson#0;class#MySQLWorker#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -739,31 +773,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/Content.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding>
-            <element signature="docComment;class#Content#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/ContentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#ContentController#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="187">
+          <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#Application#0" expanded="true" />
@@ -771,12 +784,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/Content.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#Content#0" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
+            <element signature="e#410#411#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#481#482#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/ContentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="94" lean-forward="true" selection-start-line="15" selection-start-column="94" selection-end-line="15" selection-end-column="94" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#ContentController#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/MySQLWorker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="16" column="66" lean-forward="false" selection-start-line="16" selection-start-column="66" selection-end-line="16" selection-end-column="66" />
+        <state relative-caret-position="1173">
+          <caret line="78" column="13" lean-forward="true" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
           <folding>
             <element signature="docComment;class#MySQLWorker#0" expanded="true" />
+            <element signature="docComment;method#getPersonPageRank#0;class#MySQLWorker#0" expanded="true" />
+            <element signature="docComment;method#getPerson#0;class#MySQLWorker#0" expanded="true" />
           </folding>
         </state>
       </provider>

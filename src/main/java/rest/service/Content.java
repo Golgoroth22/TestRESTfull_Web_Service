@@ -7,18 +7,24 @@ package rest.service;
 public class Content {
 
     private final long id;
-    private final String content;
+    private final int coincidences;
+    private final String person;
 
-    public Content(long id, String content) {
+    public Content(long id, int coincidences, String person) {
         this.id = id;
-        this.content = content;
+        this.coincidences = coincidences;
+        this.person = person;
     }
 
     public long getId() {
         return id;
     }
 
-    public String getContent() {
-        return content;
+    public int getCoincidences() {
+        return coincidences;
+    }
+
+    public String getPerson() {
+        return person;
     }
 }

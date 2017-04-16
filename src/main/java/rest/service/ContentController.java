@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ContentController {
 
     @RequestMapping("/api/get")
-    public String greeting(@RequestParam(value = "id", defaultValue = "0") int id) {
-        return (new MySQLWorker().get(id));
+    public Content greeting(@RequestParam(value = "id", defaultValue = "0") int id) {
+        return new Content(id, new MySQLWorker().getPersonPageRank(id), new MySQLWorker().getPerson(id));
     }
 }
