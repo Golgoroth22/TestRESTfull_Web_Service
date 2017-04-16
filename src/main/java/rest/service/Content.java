@@ -4,6 +4,9 @@ package rest.service;
  * Created by Валентин Фалин on 14.04.2017.
  */
 
+/**
+ * Класс для возвращения значений из БД.
+ */
 public class Content {
 
     private final long id;

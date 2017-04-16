@@ -16,7 +16,7 @@ public class MySQLWorker {
 
     /**
      * Метод для получения всех упоминаний одной конкретной личности(из таблицы persons)
-     * из таблицы person_page_rank по id
+     * из таблицы person_page_rank по id.
      */
     public int getPersonPageRank(int id) {
         String querry = "SELECT * FROM person_page_rank WHERE person_id = ?;";
@@ -42,7 +42,7 @@ public class MySQLWorker {
     }
 
     /**
-     * Метод для получения конкретной личности из таблицы persons по id
+     * Метод для получения конкретной личности из таблицы persons по id.
      */
     public String getPerson(int id) {
         String querry = "SELECT * FROM persons WHERE id = ?;";
@@ -65,6 +65,9 @@ public class MySQLWorker {
         return "NULL";
     }
 
+    /**
+     * Метод для закрытия соединений с БД.
+     */
     public static void close() {
         try {
             connection.close();
