@@ -42,6 +42,27 @@ public class MySQLWorker {
     }
 
     /**
+     * Метод для добавления личности в таблицу persons.
+     */
+    public boolean addPerson(String name) {
+        String querry = "INSERT INTO persons (name) VALUES (?);";
+
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            preparedStatement = connection.prepareStatement(querry);
+            preparedStatement.setString(1, name);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            close();
+        }
+        return true;
+    }
+
+    /**
      * Метод для получения конкретной личности из таблицы persons по id.
      */
     public String getPerson(int id) {
@@ -54,7 +75,6 @@ public class MySQLWorker {
             resultSet = preparedStatement.executeQuery();
 
             resultSet.next();
-            System.out.println(resultSet.getString(2));
             return resultSet.getString(2);
 
         } catch (SQLException e) {
@@ -76,11 +96,6 @@ public class MySQLWorker {
         }
         try {
             preparedStatement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        try {
-            resultSet.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

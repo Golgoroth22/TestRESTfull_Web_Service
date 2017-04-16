@@ -14,8 +14,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ContentController {
 
+    /**
+     * Контроллер для получения конкретной личности из таблицы persons по id.
+     */
     @RequestMapping("/api/get")
-    public Content greeting(@RequestParam(value = "id", defaultValue = "0") int id) {
+    public Content get(@RequestParam(value = "id", defaultValue = "0") int id) {
         return new Content(id, new MySQLWorker().getPersonPageRank(id), new MySQLWorker().getPerson(id));
+    }
+
+    /**
+     * Контроллер для добавления личности в таблицу persons.
+     */
+    @RequestMapping("/api/put")
+    public String put(@RequestParam(value = "name", defaultValue = "NULL") String name) {
+        if (new MySQLWorker().addPerson(name)) {
+            return "DONE";
+        }
+        return "ERROR";
     }
 }
