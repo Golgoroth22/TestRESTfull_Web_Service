@@ -17,7 +17,7 @@ public class ContentController {
     /**
      * Контроллер для получения конкретной личности из таблицы persons по id.
      */
-    @RequestMapping("/api/get")
+    @RequestMapping("/api/GET/person_page_rank/")
     public Content get(@RequestParam(value = "id", defaultValue = "0") int id) {
         return new Content(id, new MySQLWorker().getPersonPageRank(id), new MySQLWorker().getPerson(id));
     }
@@ -25,7 +25,7 @@ public class ContentController {
     /**
      * Контроллер для добавления личности в таблицу persons.
      */
-    @RequestMapping("/api/put")
+    @RequestMapping("/api/POST/persons/")
     public String put(@RequestParam(value = "name", defaultValue = "NULL") String name) {
         if (new MySQLWorker().addPerson(name)) {
             return "DONE";
