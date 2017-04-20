@@ -44,7 +44,7 @@ public class MySQLWorker {
     /**
      * Метод для добавления личности в таблицу persons.
      */
-    public boolean addPerson(String name) {
+    public boolean addIntoTablePersons(String name) {
         String querry = "INSERT INTO persons (name) VALUES (?);";
 
         try {
@@ -83,6 +83,49 @@ public class MySQLWorker {
             close();
         }
         return "NULL";
+    }
+
+    /**
+     * Метод для редактирования конкретной личности из таблицы persons по id.
+     */
+    public boolean updateTablePersons(int id, String value) {
+        String querry = "UPDATE persons SET name = ? WHERE id = ?;";
+
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            preparedStatement = connection.prepareStatement(querry);
+            preparedStatement.setString(1, value);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            close();
+        }
+        return true;
+    }
+
+    /**
+     * Метод для удаления позиции из таблицы по заданному id.
+     */
+    public boolean deleteFromTable(String table, int id) {
+        String querry = "DELETE FROM %s WHERE id = ?;";
+
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            preparedStatement = connection.prepareStatement(String.format(querry, table));
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            close();
+        }
+        return true;
     }
 
     /**
