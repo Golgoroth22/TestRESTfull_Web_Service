@@ -20,7 +20,7 @@
 # - Синтаксисы запроса к конкретным таблицам:
 # -             1. Таблица Persons
 <pre><b><li> 1.1 Добавление личности в таблицу persons</li></b></pre>
-<pre><b>           САЙТ/api/post/tables/persons/?name="Личность"</b>
+<pre><b>           САЙТ/api/post/tables/persons?name="Личность"</b>
 
    Пример: САЙТ/api/post/tables/persons?name=Дональд Трамп
    Результат: DONE - если добавление прошло удачно
@@ -30,6 +30,20 @@
 <pre><b>           САЙТ/api/put/tables/persons?id="нужный id"&name="Новое имя"</b>
 
    Пример: САЙТ/api/put/tables/persons?id=4&name=Барак Обама
+   Результат: DONE - если добавление прошло удачно
+              ERROR - если произошла ошибка</pre>
+# -             2. Таблица Sites
+<pre><b><li> 2.1 Добавление нового сайта в таблицу sites</li></b></pre>
+<pre><b>           САЙТ/api/post/tables/sites?name="Название сайта"&base_url="Ссылка на сайт"</b>
+
+   Пример: САЙТ/api/post/tables/sites/?name=VK&base_url=http://vk.com
+   Результат: DONE - если добавление прошло удачно
+              ERROR - если произошла ошибка</pre>
+              
+<pre><b><li> 2.2 Редактирование данных в таблице sites</li></b></pre>
+<pre><b>           САЙТ/api/put/tables/sites?id="id сайта"&name="Новое название сайта"&base_url="Новая ссылка на сайт"</b>
+
+   Пример: САЙТ/api/put/tables/sites?id=2&name=VKontakte&base_url=http://vkontakte.ru
    Результат: DONE - если добавление прошло удачно
               ERROR - если произошла ошибка</pre>
 
