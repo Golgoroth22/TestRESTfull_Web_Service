@@ -129,6 +129,51 @@ public class MySQLWorker {
     }
 
     /**
+     * Метод для добавления нового значения в таблицу sites.
+     */
+    public boolean addIntoTableSites(String name, String base_url) {
+        String querry = "INSERT INTO sites (name, base_url) VALUES (?, ?);";
+
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            preparedStatement = connection.prepareStatement(querry);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, base_url);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            close();
+        }
+        return true;
+    }
+
+    /**
+     * Метод для редактирования значений в таблице sites по заданному id.
+     */
+    public boolean updateTableSites(int id, String name, String base_url) {
+        String querry = "UPDATE sites SET name = ?, base_url = ? WHERE id = ?;";
+
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            preparedStatement = connection.prepareStatement(querry);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, base_url);
+            preparedStatement.setInt(3, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            close();
+        }
+        return true;
+    }
+
+    /**
      * Метод для закрытия соединений с БД.
      */
     public static void close() {
