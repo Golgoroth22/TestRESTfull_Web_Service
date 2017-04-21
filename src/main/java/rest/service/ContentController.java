@@ -84,4 +84,28 @@ public class ContentController {
         return ERROR;
     }
 
+    /**
+     * Контроллер для добавления ключа в таблицу keywords.
+     */
+    @RequestMapping("/api/post/tables/keywords")
+    public String addIntoTableKeywords(@RequestParam(value = "name") String name,
+                                       @RequestParam(value = "person_id") int person_id) {
+        if (new MySQLWorker().addIntoTableKeywords(name, person_id)) {
+            return DONE;
+        }
+        return ERROR;
+    }
+
+    /**
+     * Контроллер для редактирования значений в таблице keywords.
+     */
+    @RequestMapping("/api/put/tables/keywords")
+    public String updateTableKeywords(@RequestParam(value = "id") int id,
+                                      @RequestParam(value = "name") String name,
+                                      @RequestParam(value = "person_id") int person_id) {
+        if (new MySQLWorker().updateTableKeywords(id, name, person_id)) {
+            return DONE;
+        }
+        return ERROR;
+    }
 }

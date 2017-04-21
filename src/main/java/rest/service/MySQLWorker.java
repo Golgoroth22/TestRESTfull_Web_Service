@@ -174,6 +174,51 @@ public class MySQLWorker {
     }
 
     /**
+     * Метод для добавления нового значения в таблицу keywords.
+     */
+    public boolean addIntoTableKeywords(String name, int person_id) {
+        String querry = "INSERT INTO keywords (name, person_id) VALUES (?, ?);";
+
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            preparedStatement = connection.prepareStatement(querry);
+            preparedStatement.setString(1, name);
+            preparedStatement.setInt(2, person_id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            close();
+        }
+        return true;
+    }
+
+    /**
+     * Метод для редактирования значений в таблице keywords по заданному id.
+     */
+    public boolean updateTableKeywords(int id, String name, int person_id) {
+        String querry = "UPDATE keywords SET name = ?, person_id = ? WHERE id = ?;";
+
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            preparedStatement = connection.prepareStatement(querry);
+            preparedStatement.setString(1, name);
+            preparedStatement.setInt(2, person_id);
+            preparedStatement.setInt(3, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            close();
+        }
+        return true;
+    }
+
+    /**
      * Метод для закрытия соединений с БД.
      */
     public static void close() {
