@@ -17,14 +17,6 @@ public class ContentController {
     private final String DONE = "DONE";
 
     /**
-     * Контроллер для получения конкретной личности из таблицы persons по id.
-     */
-    @RequestMapping("/api/get/person_page_rank/")
-    public Content getPersonPageRank(@RequestParam(value = "id") int id) {
-        return new Content(id, new MySQLWorker().getPersonPageRank(id), new MySQLWorker().getPerson(id));
-    }
-
-    /**
      * Контроллер для добавления личности в таблицу persons.
      */
     @RequestMapping("/api/post/tables/persons")
