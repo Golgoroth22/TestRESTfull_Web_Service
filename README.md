@@ -46,5 +46,19 @@
    Пример: САЙТ/api/put/tables/sites?id=2&name=VKontakte&base_url=http://vkontakte.ru
    Результат: DONE - если добавление прошло удачно
               ERROR - если произошла ошибка</pre>
+# -             2. Таблица Keywords
+<pre><b><li> 2.1 Добавление нового ключа в таблицу keywords</li></b></pre>
+<pre><b>           САЙТ/api/post/tables/keywords?name="Новый ключ"&person_id="id личности к которой привязать ключ"</b>
+
+   Пример: САЙТ/api/post/tables/keywords?name=Медвед&person_id=3
+   Результат: DONE - если добавление прошло удачно
+              ERROR - если произошла ошибка</pre>
+              
+<pre><b><li> 2.2 Редактирование данных в таблице keywords</li></b></pre>
+<pre><b>           САЙТ/api/put/tables/keywords?id="id ключа"&name="Новое название ключа"&person_id="id личности к которой привязать ключ"</b>
+
+   Пример: САЙТ/api/put/tables/keywords?id=2&name=Димон&person_id=3
+   Результат: DONE - если добавление прошло удачно
+              ERROR - если произошла ошибка</pre>
 
 
