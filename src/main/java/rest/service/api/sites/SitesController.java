@@ -1,4 +1,4 @@
-package rest.service.api.persons;
+package rest.service.api.sites;
 
 import org.springframework.web.bind.annotation.*;
 import rest.service.MySQLWorker;
