@@ -8,7 +8,7 @@ import java.sql.*;
 public class MySQLWorker {
     private static final String url = "jdbc:mysql://188.166.160.168/gb?useSSL=false";
     private static final String user = "gb";
-    private static final String password = "1qasde32w";
+    private static final String password = " 1qasde32w";
 
     private static Connection connection;
     private static PreparedStatement preparedStatement;
