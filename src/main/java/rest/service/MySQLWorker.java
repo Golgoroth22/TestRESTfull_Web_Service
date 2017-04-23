@@ -6,9 +6,9 @@ import java.sql.*;
  * Created by Валентин Фалин on 14.04.2017.
  */
 public class MySQLWorker {
-    private static final String url = "jdbc:mysql://188.166.160.168/gb?useSSL=false";
-    private static final String user = "gb";
-    private static final String password = "1qasde32w";
+    private static final String url = DB.URL;
+    private static final String user = DB.USER;
+    private static final String password = DB.PASSWORD;
 
     private static Connection connection;
     private static PreparedStatement preparedStatement;
