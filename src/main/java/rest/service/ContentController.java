@@ -38,7 +38,7 @@ public class ContentController {
     }
 
     /**
-     * Контроллер для добавления имени личности в таблице persons.
+     * Контроллер для обновления имени личности в таблице persons.
      * POST: /api/table/persons/
      * <form action="/api/table/persons/" method="POST">
      * <input type="text" name="id" value="1"/>
