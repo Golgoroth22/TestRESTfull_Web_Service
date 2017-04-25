@@ -53,3 +53,5 @@ Temporary Items
 .idea/workspace.xml
 src/main/java/rest/service/DB.java
 .idea/misc.xml
+src/main/java/rest/service/db/Database.java
+target/classes/rest/service/db/Database.class

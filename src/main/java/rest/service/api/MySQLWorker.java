@@ -1,17 +1,21 @@
-package rest.service;
+package rest.service.api;
 
-import java.sql.*;
+import rest.service.db.Database;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
  * Created by Валентин Фалин on 14.04.2017.
  */
 public class MySQLWorker {
-    private static final String url = DB.URL;
-    private static final String user = DB.USER;
-    private static final String password = DB.PASSWORD;
-
-    private static Connection connection;
+    private Database database;
     private static PreparedStatement preparedStatement;
+
+    public MySQLWorker() {
+        database = new Database();
+        database.connect();
+    }
 
     /**
      * Метод для добавления личности в таблицу persons.
@@ -20,16 +24,14 @@ public class MySQLWorker {
         String querry = "INSERT INTO persons (name) VALUES (?);";
 
         try {
-            connection = DriverManager.getConnection(url, user, password);
-            preparedStatement = connection.prepareStatement(querry);
+            preparedStatement = database.getConnection().prepareStatement(querry);
             preparedStatement.setString(1, name);
             preparedStatement.executeUpdate();
-
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         } finally {
-            close();
+            database.disconnect();
         }
         return true;
     }
@@ -41,8 +43,7 @@ public class MySQLWorker {
         String querry = "UPDATE persons SET name = ? WHERE id = ?;";
 
         try {
-            connection = DriverManager.getConnection(url, user, password);
-            preparedStatement = connection.prepareStatement(querry);
+            preparedStatement = database.getConnection().prepareStatement(querry);
             preparedStatement.setString(1, value);
             preparedStatement.setInt(2, id);
             preparedStatement.executeUpdate();
@@ -63,8 +64,7 @@ public class MySQLWorker {
         String querry = "DELETE FROM %s WHERE id = ?;";
 
         try {
-            connection = DriverManager.getConnection(url, user, password);
-            preparedStatement = connection.prepareStatement(String.format(querry, table));
+            preparedStatement = database.getConnection().prepareStatement(String.format(querry, table));
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
 
@@ -84,8 +84,7 @@ public class MySQLWorker {
         String querry = "INSERT INTO sites (name, base_url) VALUES (?, ?);";
 
         try {
-            connection = DriverManager.getConnection(url, user, password);
-            preparedStatement = connection.prepareStatement(querry);
+            preparedStatement = database.getConnection().prepareStatement(querry);
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, base_url);
             preparedStatement.executeUpdate();
@@ -106,8 +105,7 @@ public class MySQLWorker {
         String querry = "UPDATE sites SET name = ?, base_url = ? WHERE id = ?;";
 
         try {
-            connection = DriverManager.getConnection(url, user, password);
-            preparedStatement = connection.prepareStatement(querry);
+            preparedStatement = database.getConnection().prepareStatement(querry);
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, base_url);
             preparedStatement.setInt(3, id);
@@ -129,8 +127,7 @@ public class MySQLWorker {
         String querry = "INSERT INTO keywords (name, person_id) VALUES (?, ?);";
 
         try {
-            connection = DriverManager.getConnection(url, user, password);
-            preparedStatement = connection.prepareStatement(querry);
+            preparedStatement = database.getConnection().prepareStatement(querry);
             preparedStatement.setString(1, name);
             preparedStatement.setInt(2, person_id);
             preparedStatement.executeUpdate();
@@ -151,8 +148,7 @@ public class MySQLWorker {
         String querry = "UPDATE keywords SET name = ?, person_id = ? WHERE id = ?;";
 
         try {
-            connection = DriverManager.getConnection(url, user, password);
-            preparedStatement = connection.prepareStatement(querry);
+            preparedStatement = database.getConnection().prepareStatement(querry);
             preparedStatement.setString(1, name);
             preparedStatement.setInt(2, person_id);
             preparedStatement.setInt(3, id);
@@ -171,11 +167,6 @@ public class MySQLWorker {
      * Метод для закрытия соединений с БД.
      */
     public static void close() {
-        try {
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
         try {
             preparedStatement.close();
         } catch (SQLException e) {
