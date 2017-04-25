@@ -10,6 +10,7 @@ import rest.service.api.MySQLWorker;
  * Created by Валентин Фалин on 25.04.2017.
  */
 @RestController
+@RequestMapping(value = "/api/keywords")
 public class KeywordsController {
     private final String ERROR = "ERROR";
     private final String DONE = "DONE";
@@ -17,7 +18,7 @@ public class KeywordsController {
     /**
      * Контроллер для добавления ключа в таблицу keywords.
      */
-    @RequestMapping(value = "/api/put/tables/keywords/{name}/{person_id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/put/{name}/{person_id}", method = RequestMethod.GET)
     public String addIntoTableKeywords(@PathVariable("name") String name,
                                        @PathVariable("person_id") int person_id) {
         if (new MySQLWorker().addIntoTableKeywords(name, person_id)) {
@@ -29,7 +30,7 @@ public class KeywordsController {
     /**
      * Контроллер для редактирования значений в таблице keywords.
      */
-    @RequestMapping(value = "/api/post/tables/keywords/{id}/{name}/{person_id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/post/{id}/{name}/{person_id}", method = RequestMethod.GET)
     public String updateTableKeywords(@PathVariable("id") int id,
                                       @PathVariable("name") String name,
                                       @PathVariable("person_id") int person_id) {

@@ -11,6 +11,7 @@ import rest.service.api.MySQLWorker;
  * Класс для управления и навигации по методам в сервисе.
  */
 @RestController
+@RequestMapping(value = "/api/delete")
 public class ContentController {
     private final String ERROR = "ERROR";
     private final String DONE = "DONE";
@@ -18,7 +19,7 @@ public class ContentController {
     /**
      * Контроллер для удаления элемента из указаной таблицы по указанному id.
      */
-    @RequestMapping(value = "/api/delete/tables/{table}/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{table}/{id}", method = RequestMethod.GET)
     public String deleteFromTable(@PathVariable("table") String table,
                                   @PathVariable("id") int id) {
         if (new MySQLWorker().deleteFromTable(table, id)) {
