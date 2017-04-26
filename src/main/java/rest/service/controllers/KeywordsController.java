@@ -1,9 +1,6 @@
 package rest.service.controllers;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import rest.service.api.MySQLWorker;
 
 /**
@@ -12,29 +9,41 @@ import rest.service.api.MySQLWorker;
 @RestController
 @RequestMapping(value = "/api/keywords")
 public class KeywordsController {
-    private final String ERROR = "ERROR";
+    private final String TABLE = "keywords";
+    private final String ERROR = "ERROR ";
     private final String DONE = "DONE";
 
     /**
      * Контроллер для добавления ключа в таблицу keywords.
      */
-    @RequestMapping(value = "/put/{name}/{person_id}", method = RequestMethod.GET)
-    public String addIntoTableKeywords(@PathVariable("name") String name,
-                                       @PathVariable("person_id") int person_id) {
+    @RequestMapping(method = RequestMethod.PUT, produces = "application/json")
+    public String addIntoTableKeywords(@RequestParam("name") String name,
+                                       @RequestParam("person_id") int person_id) {
         if (new MySQLWorker().addIntoTableKeywords(name, person_id)) {
             return DONE;
         }
-        return ERROR;
+        return ERROR + name;
     }
 
     /**
      * Контроллер для редактирования значений в таблице keywords.
      */
-    @RequestMapping(value = "/post/{id}/{name}/{person_id}", method = RequestMethod.GET)
-    public String updateTableKeywords(@PathVariable("id") int id,
-                                      @PathVariable("name") String name,
-                                      @PathVariable("person_id") int person_id) {
+    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
+    public String updateTableKeywords(@RequestParam("id") int id,
+                                      @RequestParam("name") String name,
+                                      @RequestParam("person_id") int person_id) {
         if (new MySQLWorker().updateTableKeywords(id, name, person_id)) {
+            return DONE;
+        }
+        return ERROR + name;
+    }
+
+    /**
+     * Контроллер для удаления элемента из таблицы sites по указанному id.
+     */
+    @RequestMapping(value = "{id}", method = RequestMethod.DELETE, produces = "application/json")
+    public String deleteFromTable(@PathVariable("id") int id) {
+        if (new MySQLWorker().deleteFromTable(TABLE, id)) {
             return DONE;
         }
         return ERROR;

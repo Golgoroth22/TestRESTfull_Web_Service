@@ -9,29 +9,44 @@ import rest.service.api.MySQLWorker;
 @RestController
 @RequestMapping(value = "/api/sites")
 public class SitesController {
-    private final String ERROR = "ERROR";
+    private final String TABLE = "sites";
+    private final String ERROR = "ERROR ";
     private final String DONE = "DONE";
 
     /**
      * Контроллер для добавления сайта в таблицу sites.
      */
-    @RequestMapping(value = "/put/{name}/", method = RequestMethod.GET)
-    public String addIntoTableSites(@PathVariable("name") String name,
+    //curl -X PUT -d "name=VK&base_url=http://vk.com" "http://localhost:8080/api/sites/"
+    @RequestMapping(method = RequestMethod.PUT, produces = "application/json")
+    public String addIntoTableSites(@RequestParam("name") String name,
                                     @RequestParam("base_url") String base_url) {
         if (new MySQLWorker().addIntoTableSites(name, base_url)) {
             return DONE;
         }
-        return ERROR;
+        return ERROR + name;
     }
 
     /**
      * Контроллер для редактирования значений из таблицы sites.
      */
-    @RequestMapping(value = "/post/sites/{id}/{name}/", method = RequestMethod.GET)
-    public String updateTableSites(@PathVariable("id") int id,
-                                   @PathVariable("name") String name,
+    //curl -X POST -d "id=2&name=VK&base_url=http://vk.com" "http://localhost:8080/api/sites/"
+    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
+    public String updateTableSites(@RequestParam("id") int id,
+                                   @RequestParam("name") String name,
                                    @RequestParam("base_url") String base_url) {
         if (new MySQLWorker().updateTableSites(id, name, base_url)) {
+            return DONE;
+        }
+        return ERROR + name;
+    }
+
+    /**
+     * Контроллер для удаления элемента из таблицы sites по указанному id.
+     */
+    //curl -X DELETE "http://localhost:8080/api/sites/2"
+    @RequestMapping(value = "{id}", method = RequestMethod.DELETE, produces = "application/json")
+    public String deleteFromTable(@PathVariable("id") int id) {
+        if (new MySQLWorker().deleteFromTable(TABLE, id)) {
             return DONE;
         }
         return ERROR;
