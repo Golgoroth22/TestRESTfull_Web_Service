@@ -1,9 +1,6 @@
 package rest.service.controllers;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import rest.service.api.MySQLWorker;
 
 /**
@@ -12,27 +9,39 @@ import rest.service.api.MySQLWorker;
 @RestController
 @RequestMapping(value = "/api/persons")
 public class PersonsController {
-    private final String ERROR = "ERROR";
+    private final String TABLE = "persons";
+    private final String ERROR = "ERROR ";
     private final String DONE = "DONE";
 
     /**
      * Контроллер для добавления личности в таблицу persons.
      */
-    @RequestMapping(value = "/put/{name}", method = RequestMethod.GET)
-    public String addIntoTablePersons(@PathVariable("name") String name) {
+    @RequestMapping(method = RequestMethod.PUT, produces = "application/json")
+    public String deleteFromPersons(@RequestParam("name") String name) {
         if (new MySQLWorker().addIntoTablePersons(name)) {
             return DONE;
         }
-        return ERROR;
+        return ERROR + name;
     }
 
     /**
      * Контроллер для редактирования имени личности в таблице persons по указанному id.
      */
-    @RequestMapping(value = "/post/{id}/{name}", method = RequestMethod.GET)
-    public String updateTablePersons(@PathVariable("id") int id,
-                                     @PathVariable("name") String name) {
+    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
+    public String updateTablePersons(@RequestParam("id") int id,
+                                     @RequestParam("name") String name) {
         if (new MySQLWorker().updateTablePersons(id, name)) {
+            return DONE;
+        }
+        return ERROR + name;
+    }
+
+    /**
+     * Контроллер для удаления элемента из таблицы sites по указанному id.
+     */
+    @RequestMapping(value = "{id}", method = RequestMethod.DELETE, produces = "application/json")
+    public String deleteFromTable(@PathVariable("id") int id) {
+        if (new MySQLWorker().deleteFromTable(TABLE, id)) {
             return DONE;
         }
         return ERROR;

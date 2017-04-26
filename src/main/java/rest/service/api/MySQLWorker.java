@@ -1,6 +1,7 @@
 package rest.service.api;
 
 import rest.service.db.Database;
+import rest.service.db.MySQLDatabase;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -13,7 +14,7 @@ public class MySQLWorker {
     private static PreparedStatement preparedStatement;
 
     public MySQLWorker() {
-        database = new Database();
+        database = new MySQLDatabase();
         database.connect();
     }
 
