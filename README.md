@@ -1,7 +1,10 @@
 # TestRESTfull_Web_Service
 Стажировка GeekBrains. REST WEB-Service.
 
-Собираем проект, запускаем main-класс Application
+Собираем проект, запускаем main-класс Application.
+
+Запросы шлем в json формате на указанный url c указанными параметрами.
+
 
 					
 	     URL	 Параметры	HTTP операция	Описание
