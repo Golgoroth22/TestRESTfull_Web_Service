@@ -7,7 +7,7 @@
 
 
 					
-<pre>	     URL	 Параметры	HTTP операция	Описание
+	     URL	 Параметры	HTTP операция	Описание
 		 
 	api/sites/	 "name"        PUT         Добавление нового элемента в таблицу sites из json формата	
                      "base_url"	
@@ -32,5 +32,5 @@
                      "name"
                      "person_id"	
 				  
-	api/keywords/1	   -	       DELETE	   Удаление элемента из таблицы keywords по указанному id параметром в конце формы http запроса	<\pre>
+	api/keywords/1	   -	       DELETE	   Удаление элемента из таблицы keywords по указанному id параметром в конце формы http запроса	
 					
