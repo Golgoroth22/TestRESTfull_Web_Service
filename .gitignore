@@ -50,3 +50,5 @@ Temporary Items
 src/main/java/rest/service/DB.java
 .idea/misc.xml
 target/classes/rest/service/db/Database.class
+target/classes/rest/service/db/MySQLDatabase.class
+target/classes/rest/service/db/MySQLDatabase.class
