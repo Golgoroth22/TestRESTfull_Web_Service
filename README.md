@@ -8,7 +8,11 @@
 
 					
 <<<<<<< HEAD
+<<<<<<< HEAD
 	     URL	 Параметры	HTTP операция	Описание
+=======
+<pre>	     URL	 Параметры	HTTP операция	Описание
+>>>>>>> parent of 88cb9f6... Update README.md
 =======
 <pre>	     URL	 Параметры	HTTP операция	Описание
 >>>>>>> parent of 88cb9f6... Update README.md
@@ -37,7 +41,11 @@
                      "person_id"	
 				  
 <<<<<<< HEAD
+<<<<<<< HEAD
 	api/keywords/1	   -	       DELETE	   Удаление элемента из таблицы keywords по указанному id параметром в конце формы http запроса	
+=======
+	api/keywords/1	   -	       DELETE	   Удаление элемента из таблицы keywords по указанному id параметром в конце формы http запроса	<\pre>
+>>>>>>> parent of 88cb9f6... Update README.md
 =======
 	api/keywords/1	   -	       DELETE	   Удаление элемента из таблицы keywords по указанному id параметром в конце формы http запроса	<\pre>
 >>>>>>> parent of 88cb9f6... Update README.md
