@@ -52,3 +52,4 @@ src/main/java/rest/service/DB.java
 target/classes/rest/service/db/Database.class
 target/classes/rest/service/db/MySQLDatabase.class
 target/classes/rest/service/db/MySQLDatabase.class
+.idea/workspace.xml
