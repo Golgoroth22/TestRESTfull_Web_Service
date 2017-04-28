@@ -7,15 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6b75a79-c535-4b46-9976-feccbe5bc3da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rest/service/api/MySQLWorker.class" afterPath="$PROJECT_DIR$/target/classes/rest/service/api/MySQLWorker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rest/service/db/MySQLDatabase.class" afterPath="$PROJECT_DIR$/target/classes/rest/service/db/MySQLDatabase.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rest/service/controllers/KeywordsController.java" afterPath="$PROJECT_DIR$/src/main/java/rest/service/controllers/KeywordsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rest/service/controllers/PersonsController.java" afterPath="$PROJECT_DIR$/src/main/java/rest/service/controllers/PersonsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rest/service/controllers/SitesController.java" afterPath="$PROJECT_DIR$/src/main/java/rest/service/controllers/SitesController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rest/service/db/MySQLDatabase.java" afterPath="$PROJECT_DIR$/src/main/java/rest/service/db/MySQLDatabase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -108,7 +100,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MySQLDatabase.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MySQLDatabase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/db/MySQLDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
@@ -124,21 +116,19 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="35" lean-forward="false" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+            <state relative-caret-position="247">
+              <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Database.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Database.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/db/Database.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
               <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding>
-                <element signature="docComment;class#Database#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -199,6 +189,7 @@
         <option value="$PROJECT_DIR$/src/main/java/rest/service/controllers/SitesController.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/service/controllers/PersonsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/service/controllers/KeywordsController.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -978,16 +969,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/Content.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/api.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/controllers.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/db/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#Database#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/controllers/ContentController.java" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
@@ -1005,14 +986,6 @@
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/Properties.java" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="35" lean-forward="false" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1087,6 +1060,22 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#MySQLDatabase#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/db/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
