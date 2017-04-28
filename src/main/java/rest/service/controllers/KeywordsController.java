@@ -16,7 +16,7 @@ public class KeywordsController {
     /**
      * Контроллер для добавления ключа в таблицу keywords.
      */
-    @RequestMapping(method = RequestMethod.PUT, produces = "application/json")
+    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public String addIntoTableKeywords(@RequestParam("name") String name,
                                        @RequestParam("person_id") int person_id) {
         if (new MySQLWorker().addIntoTableKeywords(name, person_id)) {
@@ -28,7 +28,7 @@ public class KeywordsController {
     /**
      * Контроллер для редактирования значений в таблице keywords.
      */
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(method = RequestMethod.PUT, produces = "application/json")
     public String updateTableKeywords(@RequestParam("id") int id,
                                       @RequestParam("name") String name,
                                       @RequestParam("person_id") int person_id) {

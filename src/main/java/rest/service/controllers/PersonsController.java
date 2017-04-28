@@ -16,7 +16,7 @@ public class PersonsController {
     /**
      * Контроллер для добавления личности в таблицу persons.
      */
-    @RequestMapping(method = RequestMethod.PUT, produces = "application/json")
+    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public String deleteFromPersons(@RequestParam("name") String name) {
         if (new MySQLWorker().addIntoTablePersons(name)) {
             return DONE;
@@ -27,7 +27,7 @@ public class PersonsController {
     /**
      * Контроллер для редактирования имени личности в таблице persons по указанному id.
      */
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(method = RequestMethod.PUT, produces = "application/json")
     public String updateTablePersons(@RequestParam("id") int id,
                                      @RequestParam("name") String name) {
         if (new MySQLWorker().updateTablePersons(id, name)) {
