@@ -1,6 +1,7 @@
 package rest.service.controllers;
 
 import org.springframework.web.bind.annotation.*;
+import rest.service.Errors;
 import rest.service.api.MySQLWorker;
 
 /**
@@ -10,8 +11,6 @@ import rest.service.api.MySQLWorker;
 @RequestMapping(value = "/api/keywords")
 public class KeywordsController {
     private final String TABLE = "keywords";
-    private final String ERROR = "ERROR ";
-    private final String DONE = "DONE";
 
     /**
      * Контроллер для добавления ключа в таблицу keywords.
@@ -20,9 +19,9 @@ public class KeywordsController {
     public String addIntoTableKeywords(@RequestParam("name") String name,
                                        @RequestParam("person_id") int person_id) {
         if (new MySQLWorker().addIntoTableKeywords(name, person_id)) {
-            return DONE;
+            return Errors.DONE;
         }
-        return ERROR + name;
+        return Errors.ERROR;
     }
 
     /**
@@ -33,9 +32,9 @@ public class KeywordsController {
                                       @RequestParam("name") String name,
                                       @RequestParam("person_id") int person_id) {
         if (new MySQLWorker().updateTableKeywords(id, name, person_id)) {
-            return DONE;
+            return Errors.DONE;
         }
-        return ERROR + name;
+        return Errors.ERROR;
     }
 
     /**
@@ -44,8 +43,8 @@ public class KeywordsController {
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE, produces = "application/json")
     public String deleteFromTable(@PathVariable("id") int id) {
         if (new MySQLWorker().deleteFromTable(TABLE, id)) {
-            return DONE;
+            return Errors.DONE;
         }
-        return ERROR;
+        return Errors.ERROR;
     }
 }

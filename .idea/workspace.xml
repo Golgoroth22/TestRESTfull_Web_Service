@@ -7,7 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6b75a79-c535-4b46-9976-feccbe5bc3da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rest/service/controllers/KeywordsController.class" afterPath="$PROJECT_DIR$/target/classes/rest/service/controllers/KeywordsController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rest/service/controllers/PersonsController.class" afterPath="$PROJECT_DIR$/target/classes/rest/service/controllers/PersonsController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rest/service/controllers/SitesController.class" afterPath="$PROJECT_DIR$/target/classes/rest/service/controllers/SitesController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rest/service/controllers/KeywordsController.java" afterPath="$PROJECT_DIR$/src/main/java/rest/service/controllers/KeywordsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rest/service/controllers/PersonsController.java" afterPath="$PROJECT_DIR$/src/main/java/rest/service/controllers/PersonsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rest/service/controllers/SitesController.java" afterPath="$PROJECT_DIR$/src/main/java/rest/service/controllers/SitesController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -27,8 +34,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="21" lean-forward="false" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+            <state relative-caret-position="408">
+              <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -37,11 +44,12 @@
       <file leaf-file-name="SitesController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/controllers/SitesController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+            <state relative-caret-position="340">
+              <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#addIntoTableSites#0;class#SitesController#0" expanded="true" />
+                <element signature="docComment;method#updateTableSites#0;class#SitesController#0" expanded="true" />
                 <element signature="docComment;method#deleteFromTable#0;class#SitesController#0" expanded="true" />
               </folding>
             </state>
@@ -51,8 +59,8 @@
       <file leaf-file-name="PersonsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/controllers/PersonsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="29" column="45" lean-forward="false" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+            <state relative-caret-position="765">
+              <caret line="45" column="28" lean-forward="false" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#PersonsController#0" expanded="true" />
@@ -64,11 +72,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Errors.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/Errors.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="7" column="10" lean-forward="false" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="KeywordsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/controllers/KeywordsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="30" column="47" lean-forward="false" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+            <state relative-caret-position="160">
+              <caret line="12" column="44" lean-forward="false" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#addIntoTableKeywords#0;class#KeywordsController#0" expanded="true" />
@@ -117,13 +135,13 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="247">
-              <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+              <caret line="23" column="35" lean-forward="false" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Database.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Database.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/db/Database.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
@@ -137,7 +155,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/Application.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -170,7 +188,6 @@
         <option value="$PROJECT_DIR$/src/main/java/hello/Application.java" />
         <option value="$PROJECT_DIR$/src/main/java/hello/Greeting.java" />
         <option value="$PROJECT_DIR$/src/main/java/hello/GreetingController.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/hello/MySQLWorker.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/service/GreetingController.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/service/Content.java" />
@@ -186,10 +203,13 @@
         <option value="$PROJECT_DIR$/src/main/java/rest/service/db/Database.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/rest/service/db/MySQLDatabase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rest/service/controllers/SitesController.java" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/rest/service/Errors.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/service/controllers/PersonsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/service/controllers/KeywordsController.java" />
-        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/java/rest/service/controllers/SitesController.java" />
       </list>
     </option>
   </component>
@@ -745,26 +765,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/controllers/ContentController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/api/MySQLWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1547">
-          <caret line="102" column="25" lean-forward="true" selection-start-line="102" selection-start-column="25" selection-end-line="102" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#MySQLWorker#0" expanded="true" />
-            <element signature="docComment;method#addIntoTablePersons#0;class#MySQLWorker#0" expanded="true" />
-            <element signature="docComment;method#updateTablePersons#0;class#MySQLWorker#0" expanded="true" />
-            <element signature="docComment;method#deleteFromTable#0;class#MySQLWorker#0" expanded="true" />
-            <element signature="docComment;method#addIntoTableSites#0;class#MySQLWorker#0" expanded="true" />
-            <element signature="docComment;method#updateTableSites#0;class#MySQLWorker#0" expanded="true" />
-            <element signature="docComment;method#addIntoTableKeywords#0;class#MySQLWorker#0" expanded="true" />
-            <element signature="docComment;method#updateTableKeywords#0;class#MySQLWorker#0" expanded="true" />
-            <element signature="docComment;method#close#0;class#MySQLWorker#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -977,19 +977,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="21" lean-forward="false" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/Properties.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1013,45 +1005,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/controllers/PersonsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="29" column="45" lean-forward="false" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#PersonsController#0" expanded="true" />
-            <element signature="docComment;method#deleteFromPersons#0;class#PersonsController#0" expanded="true" />
-            <element signature="docComment;method#updateTablePersons#0;class#PersonsController#0" expanded="true" />
-            <element signature="docComment;method#deleteFromTable#0;class#PersonsController#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/controllers/KeywordsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="30" column="47" lean-forward="false" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#addIntoTableKeywords#0;class#KeywordsController#0" expanded="true" />
-            <element signature="docComment;method#updateTableKeywords#0;class#KeywordsController#0" expanded="true" />
-            <element signature="docComment;method#deleteFromTable#0;class#KeywordsController#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/controllers/SitesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#addIntoTableSites#0;class#SitesController#0" expanded="true" />
-            <element signature="docComment;method#deleteFromTable#0;class#SitesController#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/db/MySQLDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1066,7 +1019,7 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
-          <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+          <caret line="23" column="35" lean-forward="false" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -1075,6 +1028,70 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/controllers/KeywordsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="12" column="44" lean-forward="false" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#addIntoTableKeywords#0;class#KeywordsController#0" expanded="true" />
+            <element signature="docComment;method#updateTableKeywords#0;class#KeywordsController#0" expanded="true" />
+            <element signature="docComment;method#deleteFromTable#0;class#KeywordsController#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/controllers/PersonsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" column="28" lean-forward="false" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#PersonsController#0" expanded="true" />
+            <element signature="docComment;method#deleteFromPersons#0;class#PersonsController#0" expanded="true" />
+            <element signature="docComment;method#updateTablePersons#0;class#PersonsController#0" expanded="true" />
+            <element signature="docComment;method#deleteFromTable#0;class#PersonsController#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/controllers/SitesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#addIntoTableSites#0;class#SitesController#0" expanded="true" />
+            <element signature="docComment;method#updateTableSites#0;class#SitesController#0" expanded="true" />
+            <element signature="docComment;method#deleteFromTable#0;class#SitesController#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rest/service/Errors.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="10" lean-forward="false" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
           <folding />
         </state>
       </provider>

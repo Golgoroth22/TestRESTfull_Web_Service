@@ -1,6 +1,7 @@
 package rest.service.controllers;
 
 import org.springframework.web.bind.annotation.*;
+import rest.service.Errors;
 import rest.service.api.MySQLWorker;
 
 /**
@@ -10,8 +11,6 @@ import rest.service.api.MySQLWorker;
 @RequestMapping(value = "/api/persons")
 public class PersonsController {
     private final String TABLE = "persons";
-    private final String ERROR = "ERROR ";
-    private final String DONE = "DONE";
 
     /**
      * Контроллер для добавления личности в таблицу persons.
@@ -19,9 +18,9 @@ public class PersonsController {
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public String deleteFromPersons(@RequestParam("name") String name) {
         if (new MySQLWorker().addIntoTablePersons(name)) {
-            return DONE;
+            return Errors.DONE;
         }
-        return ERROR + name;
+        return Errors.ERROR;
     }
 
     /**
@@ -31,9 +30,9 @@ public class PersonsController {
     public String updateTablePersons(@RequestParam("id") int id,
                                      @RequestParam("name") String name) {
         if (new MySQLWorker().updateTablePersons(id, name)) {
-            return DONE;
+            return Errors.DONE;
         }
-        return ERROR + name;
+        return Errors.ERROR;
     }
 
     /**
@@ -42,8 +41,8 @@ public class PersonsController {
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE, produces = "application/json")
     public String deleteFromTable(@PathVariable("id") int id) {
         if (new MySQLWorker().deleteFromTable(TABLE, id)) {
-            return DONE;
+            return Errors.DONE;
         }
-        return ERROR;
+        return Errors.ERROR;
     }
 }

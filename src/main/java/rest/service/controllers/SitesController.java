@@ -1,6 +1,7 @@
 package rest.service.controllers;
 
 import org.springframework.web.bind.annotation.*;
+import rest.service.Errors;
 import rest.service.api.MySQLWorker;
 
 /**
@@ -10,8 +11,6 @@ import rest.service.api.MySQLWorker;
 @RequestMapping(value = "/api/sites")
 public class SitesController {
     private final String TABLE = "sites";
-    private final String ERROR = "ERROR ";
-    private final String DONE = "DONE";
 
     /**
      * Контроллер для добавления сайта в таблицу sites.
@@ -21,9 +20,9 @@ public class SitesController {
     public String addIntoTableSites(@RequestParam("name") String name,
                                     @RequestParam("base_url") String base_url) {
         if (new MySQLWorker().addIntoTableSites(name, base_url)) {
-            return DONE;
+            return Errors.DONE;
         }
-        return ERROR + name;
+        return Errors.ERROR;
     }
 
     /**
@@ -35,9 +34,9 @@ public class SitesController {
                                    @RequestParam("name") String name,
                                    @RequestParam("base_url") String base_url) {
         if (new MySQLWorker().updateTableSites(id, name, base_url)) {
-            return DONE;
+            return Errors.DONE;
         }
-        return ERROR + name;
+        return Errors.ERROR;
     }
 
     /**
@@ -47,8 +46,8 @@ public class SitesController {
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE, produces = "application/json")
     public String deleteFromTable(@PathVariable("id") int id) {
         if (new MySQLWorker().deleteFromTable(TABLE, id)) {
-            return DONE;
+            return Errors.DONE;
         }
-        return ERROR;
+        return Errors.ERROR;
     }
 }

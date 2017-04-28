@@ -55,3 +55,5 @@ target/classes/rest/service/db/MySQLDatabase.class
 .idea/workspace.xml
 target/classes/rest/service/db/MySQLDatabase.class
 .idea/workspace.xml___jb_tmp___
+target/classes/rest/service/controllers/SitesController.class
+target/classes/rest/service/controllers/PersonsController.class
