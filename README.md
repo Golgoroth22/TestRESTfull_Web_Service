@@ -18,7 +18,7 @@
 				
 	api/sites/1       -	       DELETE	   Удаление элемента из таблицы sites по указанному id параметром в конце формы http запроса	
 					
-	api/persons/     "name"	       POST   Добавление нового элемента в таблицу persons из json формата
+	api/persons/     "name"	       POST        Добавление нового элемента в таблицу persons из json формата
 	
 	api/persons/     "id"          PUT 	   Обновление элемента в таблице persons по данным из json формата
                      "name"        
