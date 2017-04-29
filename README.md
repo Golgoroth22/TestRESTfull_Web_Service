@@ -48,12 +48,12 @@
  <pre><b>Пример:</b>
  [
   {
-    "coincidences": 3,
-    "name": "Алексей Навальный"
+    "name": "Владимир Путин",
+    "coincidences": 3
   },
   {
-    "coincidences": 3,
-    "name": "Владимир Путин"
+    "name": "Дмитрий Медведев",
+    "coincidences": 5
   }
 ]</pre>
  
