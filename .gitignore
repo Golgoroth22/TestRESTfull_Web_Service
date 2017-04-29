@@ -57,3 +57,10 @@ target/classes/rest/service/db/MySQLDatabase.class
 .idea/workspace.xml___jb_tmp___
 target/classes/rest/service/controllers/SitesController.class
 target/classes/rest/service/controllers/PersonsController.class
+src/main/java/META-INF/MANIFEST.MF
+target/classes/rest/service/controllers/KeywordsController.class
+target/classes/rest/service/api/model/Person.class
+target/classes/rest/service/controllers/SitesController.class
+target/classes/rest/service/controllers/PersonsController.class
+target/classes/rest/service/api/MySQLWorker.class
+target/classes/rest/service/controllers/SitesController.class

@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.*;
 import rest.service.Errors;
 import rest.service.api.MySQLWorker;
 
+import java.util.ArrayList;
+
 /**
  * Created by Валентин Фалин on 25.04.2017.
  */
@@ -11,6 +13,14 @@ import rest.service.api.MySQLWorker;
 @RequestMapping(value = "/api/persons")
 public class PersonsController {
     private final String TABLE = "persons";
+
+    /**
+     * Контроллер для получения всех личностей и общего количества их упоминаний из таблицы persons.
+     */
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
+    public ArrayList<?> getPersons() {
+        return new MySQLWorker().getPersons();
+    }
 
     /**
      * Контроллер для добавления личности в таблицу persons.

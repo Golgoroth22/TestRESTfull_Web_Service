@@ -1,21 +1,70 @@
 package rest.service.api;
 
+import rest.service.api.model.Person;
 import rest.service.db.Database;
 import rest.service.db.MySQLDatabase;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Created by Валентин Фалин on 14.04.2017.
  */
 public class MySQLWorker {
     private Database database;
-    private static PreparedStatement preparedStatement;
+    private PreparedStatement preparedStatement;
+    private ResultSet resultSet;
 
     public MySQLWorker() {
         database = new MySQLDatabase();
         database.connect();
+    }
+
+    /**
+     * Метод для получения всех личностей из таблицы persons.
+     */
+    public ArrayList<Person> getPersons() {
+        ArrayList<Person> result = new ArrayList();
+        String querry = "SELECT * FROM persons;";
+
+        try {
+            preparedStatement = database.getConnection().prepareStatement(querry);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int coincidences = new MySQLWorker().getPersonCoincidences(resultSet.getInt(1));
+                String name = resultSet.getString(2);
+                result.add(new Person(name, coincidences));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            database.disconnect();
+        }
+        return result;
+    }
+
+    /**
+     * Метод для получения количества упоминаний конкретной личности из таблицы persons в таблице persons_page_rank.
+     */
+    public int getPersonCoincidences(int id) {
+        String querry = "SELECT SUM(rank) FROM person_page_rank WHERE person_id = ? GROUP BY person_id;";
+
+        try {
+            preparedStatement = database.getConnection().prepareStatement(querry);
+            preparedStatement.setInt(1, id);
+            resultSet = preparedStatement.executeQuery();
+
+            resultSet.next();
+            return resultSet.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            database.disconnect();
+        }
+        return 0;
     }
 
     /**
@@ -53,7 +102,7 @@ public class MySQLWorker {
             e.printStackTrace();
             return false;
         } finally {
-            close();
+            database.disconnect();
         }
         return true;
     }
@@ -73,7 +122,7 @@ public class MySQLWorker {
             e.printStackTrace();
             return false;
         } finally {
-            close();
+            database.disconnect();
         }
         return true;
     }
@@ -94,7 +143,7 @@ public class MySQLWorker {
             e.printStackTrace();
             return false;
         } finally {
-            close();
+            database.disconnect();
         }
         return true;
     }
@@ -116,7 +165,7 @@ public class MySQLWorker {
             e.printStackTrace();
             return false;
         } finally {
-            close();
+            database.disconnect();
         }
         return true;
     }
@@ -137,7 +186,7 @@ public class MySQLWorker {
             e.printStackTrace();
             return false;
         } finally {
-            close();
+            database.disconnect();
         }
         return true;
     }
@@ -159,19 +208,8 @@ public class MySQLWorker {
             e.printStackTrace();
             return false;
         } finally {
-            close();
+            database.disconnect();
         }
         return true;
-    }
-
-    /**
-     * Метод для закрытия соединений с БД.
-     */
-    public static void close() {
-        try {
-            preparedStatement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 }
