@@ -12,7 +12,7 @@ public class MySQLDatabase extends Database {
     private static final String url = "jdbc:mysql://localhost:3306/gb?useSSL=false";
     private static final String user = "root";
     private static final String password = "root";
-    Properties properties;
+    private Properties properties;
 
     private Connection connection;
 
