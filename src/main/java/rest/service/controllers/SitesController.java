@@ -1,7 +1,7 @@
 package rest.service.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import rest.service.Errors;
+import rest.service.StatusCodes;
 import rest.service.api.MySQLWorker;
 
 /**
@@ -20,9 +20,9 @@ public class SitesController {
     public String addIntoTableSites(@RequestParam("name") String name,
                                     @RequestParam("base_url") String base_url) {
         if (new MySQLWorker().addIntoTableSites(name, base_url)) {
-            return Errors.DONE;
+            return StatusCodes.DONE;
         }
-        return Errors.ERROR;
+        return StatusCodes.ERROR;
     }
 
     /**
@@ -34,9 +34,9 @@ public class SitesController {
                                    @RequestParam("name") String name,
                                    @RequestParam("base_url") String base_url) {
         if (new MySQLWorker().updateTableSites(id, name, base_url)) {
-            return Errors.DONE;
+            return StatusCodes.DONE;
         }
-        return Errors.ERROR;
+        return StatusCodes.ERROR;
     }
 
     /**
@@ -46,8 +46,8 @@ public class SitesController {
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE, produces = "application/json")
     public String deleteFromTable(@PathVariable("id") int id) {
         if (new MySQLWorker().deleteFromTable(TABLE, id)) {
-            return Errors.DONE;
+            return StatusCodes.DONE;
         }
-        return Errors.ERROR;
+        return StatusCodes.ERROR;
     }
 }

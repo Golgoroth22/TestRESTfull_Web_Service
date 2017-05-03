@@ -1,7 +1,7 @@
 package rest.service.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import rest.service.Errors;
+import rest.service.StatusCodes;
 import rest.service.api.MySQLWorker;
 
 /**
@@ -19,9 +19,9 @@ public class KeywordsController {
     public String addIntoTableKeywords(@RequestParam("name") String name,
                                        @RequestParam("person_id") int person_id) {
         if (new MySQLWorker().addIntoTableKeywords(name, person_id)) {
-            return Errors.DONE;
+            return StatusCodes.DONE;
         }
-        return Errors.ERROR;
+        return StatusCodes.ERROR;
     }
 
     /**
@@ -32,9 +32,9 @@ public class KeywordsController {
                                       @RequestParam("name") String name,
                                       @RequestParam("person_id") int person_id) {
         if (new MySQLWorker().updateTableKeywords(id, name, person_id)) {
-            return Errors.DONE;
+            return StatusCodes.DONE;
         }
-        return Errors.ERROR;
+        return StatusCodes.ERROR;
     }
 
     /**
@@ -43,8 +43,8 @@ public class KeywordsController {
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE, produces = "application/json")
     public String deleteFromTable(@PathVariable("id") int id) {
         if (new MySQLWorker().deleteFromTable(TABLE, id)) {
-            return Errors.DONE;
+            return StatusCodes.DONE;
         }
-        return Errors.ERROR;
+        return StatusCodes.ERROR;
     }
 }

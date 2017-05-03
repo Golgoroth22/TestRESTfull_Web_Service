@@ -8,9 +8,9 @@ import java.sql.SQLException;
  * Created by Валентин Фалин on 25.04.2017.
  */
 public class MySQLDatabase extends Database {
-    private static final String url = "jdbc:mysql://localhost:3306/gb-trainee?useSSL=false";
+    private static final String url = "jdbc:mysql://localhost:3306/gb?useSSL=false";
     private static final String user = "root";
-    private static final String password = "1qazxsw2";
+    private static final String password = "root";
 
     private Connection connection;
 

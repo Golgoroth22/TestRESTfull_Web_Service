@@ -1,7 +1,7 @@
 package rest.service.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import rest.service.Errors;
+import rest.service.StatusCodes;
 import rest.service.api.MySQLWorker;
 
 import java.util.ArrayList;
@@ -28,9 +28,9 @@ public class PersonsController {
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public String deleteFromPersons(@RequestParam("name") String name) {
         if (new MySQLWorker().addIntoTablePersons(name)) {
-            return Errors.DONE;
+            return StatusCodes.DONE;
         }
-        return Errors.ERROR;
+        return StatusCodes.ERROR;
     }
 
     /**
@@ -40,9 +40,9 @@ public class PersonsController {
     public String updateTablePersons(@RequestParam("id") int id,
                                      @RequestParam("name") String name) {
         if (new MySQLWorker().updateTablePersons(id, name)) {
-            return Errors.DONE;
+            return StatusCodes.DONE;
         }
-        return Errors.ERROR;
+        return StatusCodes.ERROR;
     }
 
     /**
@@ -51,8 +51,8 @@ public class PersonsController {
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE, produces = "application/json")
     public String deleteFromTable(@PathVariable("id") int id) {
         if (new MySQLWorker().deleteFromTable(TABLE, id)) {
-            return Errors.DONE;
+            return StatusCodes.DONE;
         }
-        return Errors.ERROR;
+        return StatusCodes.ERROR;
     }
 }
