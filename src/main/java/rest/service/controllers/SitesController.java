@@ -18,8 +18,10 @@ public class SitesController {
     //curl -X PUT -d "name=VK&base_url=http://vk.com" "http://localhost:8080/api/sites/"
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public String addIntoTableSites(@RequestParam("name") String name,
-                                    @RequestParam("base_url") String base_url) {
-        if (new MySQLWorker().addIntoTableSites(name, base_url)) {
+                                    @RequestParam("base_url") String base_url,
+                                    @RequestParam("open_tag") String open_tag,
+                                    @RequestParam("open_tag") String close_tag) {
+        if (new MySQLWorker().addIntoTableSites(name, base_url, open_tag, close_tag)) {
             return StatusCodes.DONE;
         }
         return StatusCodes.ERROR;

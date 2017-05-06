@@ -1,5 +1,6 @@
 package rest.service.api;
 
+import rest.service.api.model.CoincidencesByDate;
 import rest.service.api.model.Person;
 import rest.service.db.Database;
 import rest.service.db.MySQLDatabase;
@@ -130,13 +131,15 @@ public class MySQLWorker {
     /**
      * Метод для добавления нового значения в таблицу sites.
      */
-    public boolean addIntoTableSites(String name, String base_url) {
-        String querry = "INSERT INTO sites (name, base_url) VALUES (?, ?);";
+    public boolean addIntoTableSites(String name, String base_url, String open_tag, String close_tag) {
+        String querry = "INSERT INTO sites (name, base_url, open_tag, close_tag) VALUES (?, ?, ?, ?);";
 
         try {
             preparedStatement = database.getConnection().prepareStatement(querry);
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, base_url);
+            preparedStatement.setString(3, open_tag);
+            preparedStatement.setString(4, close_tag);
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -211,5 +214,31 @@ public class MySQLWorker {
             database.disconnect();
         }
         return true;
+    }
+
+    public ArrayList<?> getPersonByDate(int person_id, String firstDate, String lastDate) {
+        ArrayList<CoincidencesByDate> result = new ArrayList();
+        String querry = "SELECT modified, rank FROM pages INNER JOIN person_page_rank " +
+                "ON pages.id = person_page_rank.page_id WHERE person_id = ? " +
+                "AND modified > ? AND modified < ?;";
+
+        try {
+            preparedStatement = database.getConnection().prepareStatement(querry);
+            preparedStatement.setInt(1, person_id);
+            preparedStatement.setString(2, firstDate);
+            preparedStatement.setString(3, lastDate);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int coincidences = resultSet.getInt(2);
+                String date = resultSet.getString(1);
+                result.add(new CoincidencesByDate(date, coincidences));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            database.disconnect();
+        }
+        return result;
     }
 }

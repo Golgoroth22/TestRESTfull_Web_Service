@@ -5,6 +5,8 @@ package rest.service.db;
  */
 public abstract class Database {
     public abstract void connect();
+
     public abstract void disconnect();
+
     public abstract java.sql.Connection getConnection();
 }

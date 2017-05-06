@@ -15,6 +15,17 @@ public class PersonsController {
     private final String TABLE = "persons";
 
     /**
+     * Контроллер для получения всех поминаний конкретной личности за указанный диапазон дат.
+     */
+    @RequestMapping(value = "{firstDate}/{lastDate}/{id}", method = RequestMethod.GET, produces = "application/json")
+    public ArrayList<?> getPersonByDate(@PathVariable("firstDate") String firstDate,
+                                        @PathVariable("lastDate") String lastDate,
+                                        @PathVariable("id") int id) {
+        return new MySQLWorker().getPersonByDate(id, firstDate, lastDate);
+    }
+
+
+    /**
      * Контроллер для получения всех личностей и общего количества их упоминаний из таблицы persons.
      */
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
