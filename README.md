@@ -12,8 +12,8 @@
 		 
 	api/sites/	 "name"         POST        Добавление нового элемента в таблицу sites из json формата
                      "base_url"	
-		     "open_tag"
-		     "close_tag"
+		         "open_tag"
+		         "close_tag"
 				
     api/sites/       "id"           PUT         Обновление элемента в таблице sites по данным из json формата
                      "name"
