@@ -17,20 +17,21 @@ public class PersonsController {
     /**
      * Контроллер для получения всех поминаний конкретной личности за указанный диапазон дат.
      */
-    @RequestMapping(value = "{firstDate}/{lastDate}/{id}", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "{firstDate}/{lastDate}/{site_id}/{person_id}", method = RequestMethod.GET, produces = "application/json")
     public ArrayList<?> getPersonByDate(@PathVariable("firstDate") String firstDate,
                                         @PathVariable("lastDate") String lastDate,
-                                        @PathVariable("id") int id) {
-        return new MySQLWorker().getPersonByDate(id, firstDate, lastDate);
+                                        @PathVariable("site_id") int site_id,
+                                        @PathVariable("person_id") int person_id) {
+        return new MySQLWorker().getPersonByDate(site_id, person_id, firstDate, lastDate);
     }
 
 
     /**
      * Контроллер для получения всех личностей и общего количества их упоминаний из таблицы persons.
      */
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public ArrayList<?> getPersons() {
-        return new MySQLWorker().getPersons();
+    @RequestMapping(value = "{site_id}", method = RequestMethod.GET, produces = "application/json")
+    public ArrayList<?> getPersons(@PathVariable("site_id") int site_id) {
+        return new MySQLWorker().getPersons(site_id);
     }
 
     /**

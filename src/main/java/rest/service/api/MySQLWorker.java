@@ -25,8 +25,10 @@ public class MySQLWorker {
 
     /**
      * Метод для получения всех личностей из таблицы persons.
+     *
+     * @param site_id
      */
-    public ArrayList<Person> getPersons() {
+    public ArrayList<Person> getPersons(int site_id) {
         ArrayList<Person> result = new ArrayList();
         String querry = "SELECT * FROM persons;";
 
@@ -35,7 +37,7 @@ public class MySQLWorker {
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                int coincidences = new MySQLWorker().getPersonCoincidences(resultSet.getInt(1));
+                int coincidences = new MySQLWorker().getPersonCoincidences(site_id, resultSet.getInt(1));
                 String name = resultSet.getString(2);
                 result.add(new Person(name, coincidences));
             }
@@ -50,12 +52,14 @@ public class MySQLWorker {
     /**
      * Метод для получения количества упоминаний конкретной личности из таблицы persons в таблице persons_page_rank.
      */
-    public int getPersonCoincidences(int id) {
-        String querry = "SELECT SUM(rank) FROM person_page_rank WHERE person_id = ? GROUP BY person_id;";
+    public int getPersonCoincidences(int site_id, int person_id) {
+        String querry = "SELECT SUM(rank) FROM person_page_rank INNER JOIN " +
+                "pages ON person_page_rank.page_id = pages.id WHERE site_id = ? AND person_id = ?;";
 
         try {
             preparedStatement = database.getConnection().prepareStatement(querry);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setInt(1, site_id);
+            preparedStatement.setInt(2, person_id);
             resultSet = preparedStatement.executeQuery();
 
             resultSet.next();
@@ -216,17 +220,18 @@ public class MySQLWorker {
         return true;
     }
 
-    public ArrayList<?> getPersonByDate(int person_id, String firstDate, String lastDate) {
+    public ArrayList<?> getPersonByDate(int site_id, int person_id, String firstDate, String lastDate) {
         ArrayList<CoincidencesByDate> result = new ArrayList();
         String querry = "SELECT modified, rank FROM pages INNER JOIN person_page_rank " +
                 "ON pages.id = person_page_rank.page_id WHERE person_id = ? " +
-                "AND modified > ? AND modified < ?;";
+                "AND modified > ? AND modified < ? AND site_id = ?;";
 
         try {
             preparedStatement = database.getConnection().prepareStatement(querry);
             preparedStatement.setInt(1, person_id);
             preparedStatement.setString(2, firstDate);
             preparedStatement.setString(3, lastDate);
+            preparedStatement.setInt(4, site_id);
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
