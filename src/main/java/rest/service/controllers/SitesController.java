@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.*;
 import rest.service.StatusCodes;
 import rest.service.api.MySQLWorker;
 
+import java.util.ArrayList;
+
 /**
  * Created by Валентин Фалин on 25.04.2017.
  */
@@ -51,5 +53,13 @@ public class SitesController {
             return StatusCodes.DONE;
         }
         return StatusCodes.ERROR;
+    }
+
+    /**
+     * Контроллер для получения сайтов из таблицы sites.
+     */
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
+    public ArrayList<?> getAllSites() {
+        return new MySQLWorker().getAllEntities(TABLE);
     }
 }

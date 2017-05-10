@@ -67,4 +67,12 @@ public class PersonsController {
         }
         return StatusCodes.ERROR;
     }
+
+    /**
+     * Контроллер для получения всех личностей из таблицы persons.
+     */
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
+    public ArrayList<?> getAllPersons() {
+        return new MySQLWorker().getAllEntities(TABLE);
+    }
 }

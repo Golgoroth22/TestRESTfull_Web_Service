@@ -1,7 +1,8 @@
 package rest.service.api;
 
-import rest.service.api.model.CoincidencesByDate;
-import rest.service.api.model.Person;
+import rest.service.api.model.EntityIdWithName;
+import rest.service.api.model.PersonCoincidencesByDate;
+import rest.service.api.model.PersonWithCoincidences;
 import rest.service.db.Database;
 import rest.service.db.MySQLDatabase;
 
@@ -25,21 +26,19 @@ public class MySQLWorker {
 
     /**
      * Метод для получения всех личностей из таблицы persons.
-     *
-     * @param site_id
      */
-    public ArrayList<Person> getPersons(int site_id) {
-        ArrayList<Person> result = new ArrayList();
-        String querry = "SELECT * FROM persons;";
+    public ArrayList<PersonWithCoincidences> getPersons(int site_id) {
+        ArrayList<PersonWithCoincidences> result = new ArrayList();
+        String query = "SELECT * FROM persons;";
 
         try {
-            preparedStatement = database.getConnection().prepareStatement(querry);
+            preparedStatement = database.getConnection().prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
                 int coincidences = new MySQLWorker().getPersonCoincidences(site_id, resultSet.getInt(1));
                 String name = resultSet.getString(2);
-                result.add(new Person(name, coincidences));
+                result.add(new PersonWithCoincidences(name, coincidences));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -53,11 +52,11 @@ public class MySQLWorker {
      * Метод для получения количества упоминаний конкретной личности из таблицы persons в таблице persons_page_rank.
      */
     public int getPersonCoincidences(int site_id, int person_id) {
-        String querry = "SELECT SUM(rank) FROM person_page_rank INNER JOIN " +
+        String query = "SELECT SUM(rank) FROM person_page_rank INNER JOIN " +
                 "pages ON person_page_rank.page_id = pages.id WHERE site_id = ? AND person_id = ?;";
 
         try {
-            preparedStatement = database.getConnection().prepareStatement(querry);
+            preparedStatement = database.getConnection().prepareStatement(query);
             preparedStatement.setInt(1, site_id);
             preparedStatement.setInt(2, person_id);
             resultSet = preparedStatement.executeQuery();
@@ -76,10 +75,10 @@ public class MySQLWorker {
      * Метод для добавления личности в таблицу persons.
      */
     public boolean addIntoTablePersons(String name) {
-        String querry = "INSERT INTO persons (name) VALUES (?);";
+        String query = "INSERT INTO persons (name) VALUES (?);";
 
         try {
-            preparedStatement = database.getConnection().prepareStatement(querry);
+            preparedStatement = database.getConnection().prepareStatement(query);
             preparedStatement.setString(1, name);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -95,10 +94,10 @@ public class MySQLWorker {
      * Метод для редактирования конкретной личности из таблицы persons по id.
      */
     public boolean updateTablePersons(int id, String value) {
-        String querry = "UPDATE persons SET name = ? WHERE id = ?;";
+        String query = "UPDATE persons SET name = ? WHERE id = ?;";
 
         try {
-            preparedStatement = database.getConnection().prepareStatement(querry);
+            preparedStatement = database.getConnection().prepareStatement(query);
             preparedStatement.setString(1, value);
             preparedStatement.setInt(2, id);
             preparedStatement.executeUpdate();
@@ -116,10 +115,10 @@ public class MySQLWorker {
      * Метод для удаления позиции из таблицы по заданному id.
      */
     public boolean deleteFromTable(String table, int id) {
-        String querry = "DELETE FROM %s WHERE id = ?;";
+        String query = "DELETE FROM %s WHERE id = ?;";
 
         try {
-            preparedStatement = database.getConnection().prepareStatement(String.format(querry, table));
+            preparedStatement = database.getConnection().prepareStatement(String.format(query, table));
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
 
@@ -136,10 +135,10 @@ public class MySQLWorker {
      * Метод для добавления нового значения в таблицу sites.
      */
     public boolean addIntoTableSites(String name, String base_url, String open_tag, String close_tag) {
-        String querry = "INSERT INTO sites (name, base_url, open_tag, close_tag) VALUES (?, ?, ?, ?);";
+        String query = "INSERT INTO sites (name, base_url, open_tag, close_tag) VALUES (?, ?, ?, ?);";
 
         try {
-            preparedStatement = database.getConnection().prepareStatement(querry);
+            preparedStatement = database.getConnection().prepareStatement(query);
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, base_url);
             preparedStatement.setString(3, open_tag);
@@ -159,10 +158,10 @@ public class MySQLWorker {
      * Метод для редактирования значений в таблице sites по заданному id.
      */
     public boolean updateTableSites(int id, String name, String base_url) {
-        String querry = "UPDATE sites SET name = ?, base_url = ? WHERE id = ?;";
+        String query = "UPDATE sites SET name = ?, base_url = ? WHERE id = ?;";
 
         try {
-            preparedStatement = database.getConnection().prepareStatement(querry);
+            preparedStatement = database.getConnection().prepareStatement(query);
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, base_url);
             preparedStatement.setInt(3, id);
@@ -181,10 +180,10 @@ public class MySQLWorker {
      * Метод для добавления нового значения в таблицу keywords.
      */
     public boolean addIntoTableKeywords(String name, int person_id) {
-        String querry = "INSERT INTO keywords (name, person_id) VALUES (?, ?);";
+        String query = "INSERT INTO keywords (name, person_id) VALUES (?, ?);";
 
         try {
-            preparedStatement = database.getConnection().prepareStatement(querry);
+            preparedStatement = database.getConnection().prepareStatement(query);
             preparedStatement.setString(1, name);
             preparedStatement.setInt(2, person_id);
             preparedStatement.executeUpdate();
@@ -202,10 +201,10 @@ public class MySQLWorker {
      * Метод для редактирования значений в таблице keywords по заданному id.
      */
     public boolean updateTableKeywords(int id, String name, int person_id) {
-        String querry = "UPDATE keywords SET name = ?, person_id = ? WHERE id = ?;";
+        String query = "UPDATE keywords SET name = ?, person_id = ? WHERE id = ?;";
 
         try {
-            preparedStatement = database.getConnection().prepareStatement(querry);
+            preparedStatement = database.getConnection().prepareStatement(query);
             preparedStatement.setString(1, name);
             preparedStatement.setInt(2, person_id);
             preparedStatement.setInt(3, id);
@@ -221,13 +220,13 @@ public class MySQLWorker {
     }
 
     public ArrayList<?> getPersonByDate(int site_id, int person_id, String firstDate, String lastDate) {
-        ArrayList<CoincidencesByDate> result = new ArrayList();
-        String querry = "SELECT modified, rank FROM pages INNER JOIN person_page_rank " +
+        ArrayList<PersonCoincidencesByDate> result = new ArrayList();
+        String query = "SELECT modified, rank FROM pages INNER JOIN person_page_rank " +
                 "ON pages.id = person_page_rank.page_id WHERE person_id = ? " +
                 "AND modified > ? AND modified < ? AND site_id = ?;";
 
         try {
-            preparedStatement = database.getConnection().prepareStatement(querry);
+            preparedStatement = database.getConnection().prepareStatement(query);
             preparedStatement.setInt(1, person_id);
             preparedStatement.setString(2, firstDate);
             preparedStatement.setString(3, lastDate);
@@ -237,7 +236,50 @@ public class MySQLWorker {
             while (resultSet.next()) {
                 int coincidences = resultSet.getInt(2);
                 String date = resultSet.getString(1);
-                result.add(new CoincidencesByDate(date, coincidences));
+                result.add(new PersonCoincidencesByDate(date, coincidences));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            database.disconnect();
+        }
+        return result;
+    }
+
+    public ArrayList<?> getAllEntities(String table) {
+        ArrayList<EntityIdWithName> result = new ArrayList();
+        String query = "SELECT id, name FROM %s;";
+
+        try {
+            preparedStatement = database.getConnection().prepareStatement(String.format(query, table));
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                result.add(new EntityIdWithName(id, name));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            database.disconnect();
+        }
+        return result;
+    }
+
+    public ArrayList<?> getAllKeywordsByPersonId(int person_id) {
+        ArrayList<EntityIdWithName> result = new ArrayList();
+        String query = "SELECT * FROM keywords WHERE person_id = ?;";
+
+        try {
+            preparedStatement = database.getConnection().prepareStatement(query);
+            preparedStatement.setInt(1, person_id);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                result.add(new EntityIdWithName(id, name));
             }
         } catch (SQLException e) {
             e.printStackTrace();

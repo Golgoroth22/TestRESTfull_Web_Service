@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.*;
 import rest.service.StatusCodes;
 import rest.service.api.MySQLWorker;
 
+import java.util.ArrayList;
+
 /**
  * Created by Валентин Фалин on 25.04.2017.
  */
@@ -46,5 +48,13 @@ public class KeywordsController {
             return StatusCodes.DONE;
         }
         return StatusCodes.ERROR;
+    }
+
+    /**
+     * Контроллер для получения ключевых слов из таблицы keywords по указанному person_id.
+     */
+    @RequestMapping(value = "{person_id}", method = RequestMethod.GET, produces = "application/json")
+    public ArrayList<?> getAllKeywordsByPersonId(@PathVariable("person_id") int person_id) {
+        return new MySQLWorker().getAllKeywordsByPersonId(person_id);
     }
 }
