@@ -1,8 +1,6 @@
 package rest.service.api;
 
-import rest.service.api.model.EntityIdWithName;
-import rest.service.api.model.PersonCoincidencesByDate;
-import rest.service.api.model.PersonWithCoincidences;
+import rest.service.api.model.*;
 import rest.service.db.Database;
 import rest.service.db.MySQLDatabase;
 
@@ -81,6 +79,7 @@ public class MySQLWorker {
             preparedStatement = database.getConnection().prepareStatement(query);
             preparedStatement.setString(1, name);
             preparedStatement.executeUpdate();
+
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -246,18 +245,18 @@ public class MySQLWorker {
         return result;
     }
 
-    public ArrayList<?> getAllEntities(String table) {
-        ArrayList<EntityIdWithName> result = new ArrayList();
-        String query = "SELECT id, name FROM %s;";
+    public ArrayList<?> getAllPersons() {
+        ArrayList<Person> result = new ArrayList();
+        String query = "SELECT id, name FROM persons;";
 
         try {
-            preparedStatement = database.getConnection().prepareStatement(String.format(query, table));
+            preparedStatement = database.getConnection().prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
                 int id = resultSet.getInt(1);
                 String name = resultSet.getString(2);
-                result.add(new EntityIdWithName(id, name));
+                result.add(new Person(id, name));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -268,7 +267,7 @@ public class MySQLWorker {
     }
 
     public ArrayList<?> getAllKeywordsByPersonId(int person_id) {
-        ArrayList<EntityIdWithName> result = new ArrayList();
+        ArrayList<Keyword> result = new ArrayList();
         String query = "SELECT * FROM keywords WHERE person_id = ?;";
 
         try {
@@ -279,7 +278,53 @@ public class MySQLWorker {
             while (resultSet.next()) {
                 int id = resultSet.getInt(1);
                 String name = resultSet.getString(2);
-                result.add(new EntityIdWithName(id, name));
+                result.add(new Keyword(id, name, person_id));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            database.disconnect();
+        }
+        return result;
+    }
+
+    public ArrayList<?> getAllSites() {
+        ArrayList<Site> result = new ArrayList();
+        String query = "SELECT * FROM sites;";
+
+        try {
+            preparedStatement = database.getConnection().prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                String base_url = resultSet.getString(3);
+                String open_tag = resultSet.getString(4);
+                String close_tag = resultSet.getString(5);
+                result.add(new Site(id, name, base_url, open_tag, close_tag));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            database.disconnect();
+        }
+        return result;
+    }
+
+    public ArrayList<?> getAllKeywords() {
+        ArrayList<Keyword> result = new ArrayList();
+        String query = "SELECT * FROM keywords;";
+
+        try {
+            preparedStatement = database.getConnection().prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                int person_id = resultSet.getInt(3);
+                result.add(new Keyword(id, name, person_id));
             }
         } catch (SQLException e) {
             e.printStackTrace();

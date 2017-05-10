@@ -73,6 +73,6 @@ public class PersonsController {
      */
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     public ArrayList<?> getAllPersons() {
-        return new MySQLWorker().getAllEntities(TABLE);
+        return new MySQLWorker().getAllPersons();
     }
 }

@@ -60,6 +60,6 @@ public class SitesController {
      */
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     public ArrayList<?> getAllSites() {
-        return new MySQLWorker().getAllEntities(TABLE);
+        return new MySQLWorker().getAllSites();
     }
 }

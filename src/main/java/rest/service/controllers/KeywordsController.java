@@ -51,6 +51,14 @@ public class KeywordsController {
     }
 
     /**
+     * Контроллер для получения всех ключевых слов из таблицы keywords.
+     */
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
+    public ArrayList<?> getAllKeywords() {
+        return new MySQLWorker().getAllKeywords();
+    }
+
+    /**
      * Контроллер для получения ключевых слов из таблицы keywords по указанному person_id.
      */
     @RequestMapping(value = "{person_id}", method = RequestMethod.GET, produces = "application/json")
