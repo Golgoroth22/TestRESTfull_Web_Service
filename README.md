@@ -20,13 +20,17 @@
                      "base_url"	
 				
 	api/sites/1       -	        DELETE	    Удаление элемента из таблицы sites по указанному id параметром в конце формы http запроса	
-					
+	
+	api/sites/        -             GET         Получение всех элеметов из таблицы sites
+	
 	api/persons/     "name"	        POST        Добавление нового элемента в таблицу persons из json формата
 	
 	api/persons/     "id"           PUT 	    Обновление элемента в таблице persons по данным из json формата
                      "name"        
 				 
 	api/persons/1     -	        DELETE	    Удаление элемента из таблицы persons по указанному id параметром в конце формы http запроса		
+	
+	api/persons/      -             GET         Получение всех элеметов из таблицы persons
 					  
 	api/keywords/    "name"         POST	    Добавление нового элемента в таблицу keywords из json формата
                      "person_id"
@@ -36,6 +40,8 @@
                      "person_id"	
 				  
 	api/keywords/1	   -	        DELETE	    Удаление элемента из таблицы keywords по указанному id параметром в конце формы http запроса	
+	
+	api/keywords/1    -             GET         Получение всех элеметов из таблицы keywords по указанному persons_id
 					
 # Запросы для пользователя:
 <pre>
