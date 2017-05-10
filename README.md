@@ -44,6 +44,7 @@
 	api/keywords/1    -             GET         Получение всех элеметов из таблицы keywords по указанному persons_id
 					
 # Запросы для пользователя:
+# 1.
 <pre>
  <b>URL:                api/persons/id сайта из таблицы sites</b>
  
@@ -65,7 +66,7 @@
     "coincidences": 5
   }
 ]</pre>
-
+# 2.
 <pre>
  <b>URL:                api/persons/начальная дата/конечная дата/id сайта из таблицы sites/id личности из таблицы persons</b>
  
