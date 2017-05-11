@@ -220,9 +220,9 @@ public class MySQLWorker {
 
     public ArrayList<?> getPersonByDate(int site_id, int person_id, String firstDate, String lastDate) {
         ArrayList<PersonCoincidencesByDate> result = new ArrayList();
-        String query = "SELECT modified, rank FROM pages INNER JOIN person_page_rank " +
+        String query = "SELECT modified, SUM(rank) FROM pages INNER JOIN person_page_rank " +
                 "ON pages.id = person_page_rank.page_id WHERE person_id = ? " +
-                "AND modified > ? AND modified < ? AND site_id = ?;";
+                "AND modified >= ? AND modified <= ? AND site_id = ? GROUP BY modified;";
 
         try {
             preparedStatement = database.getConnection().prepareStatement(query);
