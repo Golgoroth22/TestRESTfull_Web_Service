@@ -17,7 +17,7 @@ public class SitesController {
     /**
      * Контроллер для добавления сайта в таблицу sites.
      */
-    //curl -X PUT -d "name=VK&base_url=http://vk.com" "http://localhost:8080/api/sites/"
+    //curl -X POST -d "name=VK&base_url=http://vk.com&open_tag=ot&close_tag=ct" "http://localhost:8085/api/sites"
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public String addIntoTableSites(@RequestParam("name") String name,
                                     @RequestParam("base_url") String base_url,
@@ -32,7 +32,7 @@ public class SitesController {
     /**
      * Контроллер для редактирования значений из таблицы sites.
      */
-    //curl -X POST -d "id=2&name=VK&base_url=http://vk.com" "http://localhost:8080/api/sites/"
+    //curl -X PUT -d "id=2&name=VK&base_url=http://vk.com" "http://localhost:8085/api/sites"
     @RequestMapping(method = RequestMethod.PUT, produces = "application/json")
     public String updateTableSites(@RequestParam("id") int id,
                                    @RequestParam("name") String name,
@@ -58,6 +58,7 @@ public class SitesController {
     /**
      * Контроллер для получения сайтов из таблицы sites.
      */
+    //curl -X GET "http://localhost:8085/api/sites"
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     public ArrayList<?> getAllSites() {
         return new MySQLWorker().getAllSites();
