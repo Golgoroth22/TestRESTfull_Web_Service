@@ -3,7 +3,7 @@ package rest.service.controllers;
 import org.springframework.web.bind.annotation.*;
 import rest.service.StatusCodes;
 import rest.service.api.MySQLWorker;
-import rest.service.api.model.Site;
+import rest.service.api.models.Site;
 
 import java.util.ArrayList;
 
