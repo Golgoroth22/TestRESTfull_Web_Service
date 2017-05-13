@@ -1,6 +1,6 @@
 package rest.service.api;
 
-import rest.service.api.model.*;
+import rest.service.api.models.*;
 import rest.service.db.Database;
 import rest.service.db.MySQLDatabase;
 
@@ -72,12 +72,12 @@ public class MySQLWorker {
     /**
      * Метод для добавления личности в таблицу persons.
      */
-    public boolean addIntoTablePersons(String name) {
+    public boolean addIntoTablePersons(Person person) {
         String query = "INSERT INTO persons (name) VALUES (?);";
 
         try {
             preparedStatement = database.getConnection().prepareStatement(query);
-            preparedStatement.setString(1, name);
+            preparedStatement.setString(1, person.getName());
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -92,13 +92,13 @@ public class MySQLWorker {
     /**
      * Метод для редактирования конкретной личности из таблицы persons по id.
      */
-    public boolean updateTablePersons(int id, String value) {
+    public boolean updateTablePersons(Person person) {
         String query = "UPDATE persons SET name = ? WHERE id = ?;";
 
         try {
             preparedStatement = database.getConnection().prepareStatement(query);
-            preparedStatement.setString(1, value);
-            preparedStatement.setInt(2, id);
+            preparedStatement.setString(1, person.getName());
+            preparedStatement.setInt(2, person.getId());
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {

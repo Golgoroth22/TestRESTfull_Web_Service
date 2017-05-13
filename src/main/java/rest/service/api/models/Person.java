@@ -1,4 +1,4 @@
-package rest.service.api.model;
+package rest.service.api.models;
 
 /**
  * Created by Валентин Фалин on 10.05.2017.
@@ -6,6 +6,13 @@ package rest.service.api.model;
 public class Person {
     private int id;
     private String name;
+
+    public Person() {
+    }
+
+    public Person(String name) {
+        this.name = name;
+    }
 
     public Person(int id, String name) {
         this.id = id;
