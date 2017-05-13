@@ -42,6 +42,8 @@
 	api/keywords/1	   -	        DELETE	    Удаление элемента из таблицы keywords по указанному id параметром в конце формы http запроса	
 	
 	api/keywords/1    -             GET         Получение всех элеметов из таблицы keywords по указанному persons_id
+	
+	api/keywords/     -             GET         Получение всех элеметов из таблицы keywords
 					
 # Запросы для пользователя:
 # 1.

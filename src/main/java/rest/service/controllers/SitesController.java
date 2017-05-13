@@ -54,6 +54,7 @@ public class SitesController {
     /**
      * Контроллер для получения сайтов из таблицы sites.
      */
+    //curl -X GET "http://localhost:8085/api/sites" 
     @RequestMapping(method = RequestMethod.GET)
     public ArrayList<?> getAllSites() {
         return new MySQLWorker().getAllSites();
