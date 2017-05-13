@@ -133,15 +133,15 @@ public class MySQLWorker {
     /**
      * Метод для добавления нового значения в таблицу sites.
      */
-    public boolean addIntoTableSites(String name, String base_url, String open_tag, String close_tag) {
+    public boolean addIntoTableSites(Site site) {
         String query = "INSERT INTO sites (name, base_url, open_tag, close_tag) VALUES (?, ?, ?, ?);";
 
         try {
             preparedStatement = database.getConnection().prepareStatement(query);
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, base_url);
-            preparedStatement.setString(3, open_tag);
-            preparedStatement.setString(4, close_tag);
+            preparedStatement.setString(1, site.getName());
+            preparedStatement.setString(2, site.getBase_url());
+            preparedStatement.setString(3, site.getOpen_tag());
+            preparedStatement.setString(4, site.getClose_tag());
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -156,14 +156,16 @@ public class MySQLWorker {
     /**
      * Метод для редактирования значений в таблице sites по заданному id.
      */
-    public boolean updateTableSites(int id, String name, String base_url) {
-        String query = "UPDATE sites SET name = ?, base_url = ? WHERE id = ?;";
+    public boolean updateTableSites(Site site) {
+        String query = "UPDATE sites SET name = ?, base_url = ?, open_tag = ?, close_tag = ? WHERE id = ?;";
 
         try {
             preparedStatement = database.getConnection().prepareStatement(query);
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, base_url);
-            preparedStatement.setInt(3, id);
+            preparedStatement.setString(1, site.getName());
+            preparedStatement.setString(2, site.getBase_url());
+            preparedStatement.setString(3, site.getBase_url());
+            preparedStatement.setString(4, site.getBase_url());
+            preparedStatement.setInt(5, site.getId());
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {

@@ -10,6 +10,16 @@ public class Site {
     private String open_tag;
     private String close_tag;
 
+    public Site() {
+    }
+
+    public Site(String name, String base_url, String open_tag, String close_tag) {
+        this.name = name;
+        this.base_url = base_url;
+        this.open_tag = open_tag;
+        this.close_tag = close_tag;
+    }
+
     public Site(int id, String name, String base_url, String open_tag, String close_tag) {
         this.id = id;
         this.name = name;
@@ -17,6 +27,7 @@ public class Site {
         this.open_tag = open_tag;
         this.close_tag = close_tag;
     }
+
 
     public int getId() {
         return id;
