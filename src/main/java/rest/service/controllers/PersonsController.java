@@ -3,6 +3,7 @@ package rest.service.controllers;
 import org.springframework.web.bind.annotation.*;
 import rest.service.StatusCodes;
 import rest.service.api.MySQLWorker;
+import rest.service.api.models.Person;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ public class PersonsController {
     /**
      * Контроллер для получения всех поминаний конкретной личности за указанный диапазон дат.
      */
-    @RequestMapping(value = "{firstDate}/{lastDate}/{site_id}/{person_id}", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "{firstDate}/{lastDate}/{site_id}/{person_id}", method = RequestMethod.GET)
     public ArrayList<?> getPersonByDate(@PathVariable("firstDate") String firstDate,
                                         @PathVariable("lastDate") String lastDate,
                                         @PathVariable("site_id") int site_id,
@@ -29,7 +30,7 @@ public class PersonsController {
     /**
      * Контроллер для получения всех личностей и общего количества их упоминаний из таблицы persons.
      */
-    @RequestMapping(value = "{site_id}", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "{site_id}", method = RequestMethod.GET)
     public ArrayList<?> getPersons(@PathVariable("site_id") int site_id) {
         return new MySQLWorker().getPersons(site_id);
     }
@@ -37,9 +38,9 @@ public class PersonsController {
     /**
      * Контроллер для добавления личности в таблицу persons.
      */
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    public String deleteFromPersons(@RequestParam("name") String name) {
-        if (new MySQLWorker().addIntoTablePersons(name)) {
+    @RequestMapping(method = RequestMethod.POST)
+    public String deleteFromPersons(@RequestBody Person person) {
+        if (new MySQLWorker().addIntoTablePersons(person)) {
             return StatusCodes.DONE;
         }
         return StatusCodes.ERROR;
@@ -48,10 +49,9 @@ public class PersonsController {
     /**
      * Контроллер для редактирования имени личности в таблице persons по указанному id.
      */
-    @RequestMapping(method = RequestMethod.PUT, produces = "application/json")
-    public String updateTablePersons(@RequestParam("id") int id,
-                                     @RequestParam("name") String name) {
-        if (new MySQLWorker().updateTablePersons(id, name)) {
+    @RequestMapping(method = RequestMethod.PUT)
+    public String updateTablePersons(@RequestBody Person person) {
+        if (new MySQLWorker().updateTablePersons(person)) {
             return StatusCodes.DONE;
         }
         return StatusCodes.ERROR;
@@ -60,7 +60,7 @@ public class PersonsController {
     /**
      * Контроллер для удаления элемента из таблицы sites по указанному id.
      */
-    @RequestMapping(value = "{id}", method = RequestMethod.DELETE, produces = "application/json")
+    @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
     public String deleteFromTable(@PathVariable("id") int id) {
         if (new MySQLWorker().deleteFromTable(TABLE, id)) {
             return StatusCodes.DONE;
@@ -71,7 +71,7 @@ public class PersonsController {
     /**
      * Контроллер для получения всех личностей из таблицы persons.
      */
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(method = RequestMethod.GET)
     public ArrayList<?> getAllPersons() {
         return new MySQLWorker().getAllPersons();
     }

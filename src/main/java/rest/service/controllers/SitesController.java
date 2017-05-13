@@ -3,6 +3,7 @@ package rest.service.controllers;
 import org.springframework.web.bind.annotation.*;
 import rest.service.StatusCodes;
 import rest.service.api.MySQLWorker;
+import rest.service.api.models.Site;
 
 import java.util.ArrayList;
 
@@ -17,13 +18,10 @@ public class SitesController {
     /**
      * Контроллер для добавления сайта в таблицу sites.
      */
-    //curl -X POST -d "name=VK&base_url=http://vk.com&open_tag=ot&close_tag=ct" "http://localhost:8085/api/sites"
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    public String addIntoTableSites(@RequestParam("name") String name,
-                                    @RequestParam("base_url") String base_url,
-                                    @RequestParam("open_tag") String open_tag,
-                                    @RequestParam("close_tag") String close_tag) {
-        if (new MySQLWorker().addIntoTableSites(name, base_url, open_tag, close_tag)) {
+    //curl -H "Content-Type: application/json" -X PUT -d "name=VK&base_url=http://vk.com" "http://localhost:8080/api/sites/"
+    @RequestMapping(method = RequestMethod.POST)
+    public String addIntoTableSites(@RequestBody Site site) {
+        if (new MySQLWorker().addIntoTableSites(site)) {
             return StatusCodes.DONE;
         }
         return StatusCodes.ERROR;
@@ -32,12 +30,10 @@ public class SitesController {
     /**
      * Контроллер для редактирования значений из таблицы sites.
      */
-    //curl -X PUT -d "id=2&name=VK&base_url=http://vk.com" "http://localhost:8085/api/sites"
-    @RequestMapping(method = RequestMethod.PUT, produces = "application/json")
-    public String updateTableSites(@RequestParam("id") int id,
-                                   @RequestParam("name") String name,
-                                   @RequestParam("base_url") String base_url) {
-        if (new MySQLWorker().updateTableSites(id, name, base_url)) {
+    //curl -H "Content-Type: application/json" -X POST -d "id=2&name=VK&base_url=http://vk.com" "http://localhost:8080/api/sites/"
+    @RequestMapping(method = RequestMethod.PUT)
+    public String updateTableSites(@RequestBody Site site) {
+        if (new MySQLWorker().updateTableSites(site)) {
             return StatusCodes.DONE;
         }
         return StatusCodes.ERROR;
@@ -47,7 +43,7 @@ public class SitesController {
      * Контроллер для удаления элемента из таблицы sites по указанному id.
      */
     //curl -X DELETE "http://localhost:8080/api/sites/2"
-    @RequestMapping(value = "{id}", method = RequestMethod.DELETE, produces = "application/json")
+    @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
     public String deleteFromTable(@PathVariable("id") int id) {
         if (new MySQLWorker().deleteFromTable(TABLE, id)) {
             return StatusCodes.DONE;
@@ -58,8 +54,8 @@ public class SitesController {
     /**
      * Контроллер для получения сайтов из таблицы sites.
      */
-    //curl -X GET "http://localhost:8085/api/sites"
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
+    //curl -X GET "http://localhost:8085/api/sites" 
+    @RequestMapping(method = RequestMethod.GET)
     public ArrayList<?> getAllSites() {
         return new MySQLWorker().getAllSites();
     }

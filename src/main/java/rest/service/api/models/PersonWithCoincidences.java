@@ -1,4 +1,4 @@
-package rest.service.api.model;
+package rest.service.api.models;
 
 /**
  * Created by Валентин Фалин on 29.04.2017.
