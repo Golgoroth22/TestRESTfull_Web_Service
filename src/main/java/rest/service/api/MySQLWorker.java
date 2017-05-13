@@ -180,13 +180,13 @@ public class MySQLWorker {
     /**
      * Метод для добавления нового значения в таблицу keywords.
      */
-    public boolean addIntoTableKeywords(String name, int person_id) {
+    public boolean addIntoTableKeywords(Keyword keyword) {
         String query = "INSERT INTO keywords (name, person_id) VALUES (?, ?);";
 
         try {
             preparedStatement = database.getConnection().prepareStatement(query);
-            preparedStatement.setString(1, name);
-            preparedStatement.setInt(2, person_id);
+            preparedStatement.setString(1, keyword.getName());
+            preparedStatement.setInt(2, keyword.getPerson_id());
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -201,14 +201,14 @@ public class MySQLWorker {
     /**
      * Метод для редактирования значений в таблице keywords по заданному id.
      */
-    public boolean updateTableKeywords(int id, String name, int person_id) {
+    public boolean updateTableKeywords(Keyword keyword) {
         String query = "UPDATE keywords SET name = ?, person_id = ? WHERE id = ?;";
 
         try {
             preparedStatement = database.getConnection().prepareStatement(query);
-            preparedStatement.setString(1, name);
-            preparedStatement.setInt(2, person_id);
-            preparedStatement.setInt(3, id);
+            preparedStatement.setString(1, keyword.getName());
+            preparedStatement.setInt(2, keyword.getPerson_id());
+            preparedStatement.setInt(3, keyword.getId());
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {

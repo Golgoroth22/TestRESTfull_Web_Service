@@ -8,6 +8,14 @@ public class Keyword {
     private String name;
     private int person_id;
 
+    public Keyword() {
+    }
+
+    public Keyword(String name, int person_id) {
+        this.name = name;
+        this.person_id = person_id;
+    }
+
     public Keyword(int id, String name, int person_id) {
         this.id = id;
         this.name = name;
