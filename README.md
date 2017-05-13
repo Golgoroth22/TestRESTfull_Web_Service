@@ -18,6 +18,8 @@
     api/sites/       "id"           PUT         Обновление элемента в таблице sites по данным из json формата
                      "name"
                      "base_url"	
+		         "open_tag"
+		         "close_tag"
 				
 	api/sites/1       -	        DELETE	    Удаление элемента из таблицы sites по указанному id параметром в конце формы http запроса	
 	
